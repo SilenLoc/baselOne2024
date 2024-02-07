@@ -1,0 +1,46 @@
+
+hurl_opts := "--variables-file api_tests/hurl.env.test --test"
+
+@list:
+    just --list
+
+build:
+    ./gradlew bootImage --imageName=hurlspring:latest
+
+up c="": build
+    docker-compose down
+    docker-compose up {{c}}
+
+verify: test build-and-run-api-test lint
+    just build-and-run-api-test
+
+# Run all tests
+test:
+    ./gradlew test
+
+# Run linters
+lint:
+    ./gradlew detekt
+
+# run api tests
+build-and-run-api-test: build (up "-d") api-test
+    docker-compose down
+
+
+wait-for-api:
+	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
+
+
+# run acceptance tests against the running test stack
+api-test *args: wait-for-api
+    hurl api_tests/implemented/*.hurl {{hurl_opts}} {{args}}
+
+# run all acceptance tests against the running test stack, including for non-implemented api
+api-test-not-implemented *args: wait-for-api
+    hurl api_tests/not_implemented/*.hurl {{hurl_opts}} {{args}}
+
+
+install-hurl:
+  curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb
+  sudo apt update && sudo apt install ./hurl_4.1.0_amd64.deb
+  rm hurl_4.1.0_amd64.deb
