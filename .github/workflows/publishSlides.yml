@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 20
       - name: Marp Build (README.pdf)
-        uses: docker://marpteam/marp-cli:v1.7.0
+        uses: docker://marpteam/marp-cli:latest
         with:
           args: slides/slides.md -o dist/index.html
         env:

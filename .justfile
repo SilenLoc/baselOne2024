@@ -4,7 +4,7 @@ PORT := "5000"
 
 # show slides
 show:
-    marp -s --allow-local-files ./slides
+    marp -s ./slides
 
 [windows]
 install:
