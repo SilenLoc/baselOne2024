@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: default
-footer: 'Silen Locatelli, Optravis LLC ![optravis w:20px]()'
+footer: 'Silen Locatelli, Optravis LLC ![optravis w:20px](https://raw.githubusercontent.com/SilenLoc/baselOne2024/main/img/logo.svg)'
 class: invert
 headingDivider: 3
 paginate: true
