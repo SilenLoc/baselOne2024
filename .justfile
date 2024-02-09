@@ -17,6 +17,3 @@ install-scoop:
 [unix]
 install:
     brew install marp-cli
-
-publish:
-   marp slides/slides.md -o dist/index.html

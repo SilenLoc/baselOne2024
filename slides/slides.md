@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: default
-footer: 'Silen Locatelli, Optravis LLC ![optravis w:20px](logo.svg)'
+footer: 'Silen Locatelli, Optravis LLC ![optravis w:20px]()'
 class: invert
 headingDivider: 3
 paginate: true
