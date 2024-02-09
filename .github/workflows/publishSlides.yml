@@ -16,13 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: just@1
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: just publish
+      - name: Marp Build (README.pdf)
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: slides/slides.md -o dist/index.html
+        env:
+          MARP_USER: root:root
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
