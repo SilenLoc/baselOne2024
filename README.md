@@ -1,7 +1,18 @@
 # baselOne2024
 Repo with all the slides and showcases for the potential baselOne 2024 talk
 
+The slides are hosted [here](https://silenloc.github.io/baselOne2024/)
 
-To get an actual look at the slides you may want to install the "marp-cli"
+For development look at the slides you want to install the "marp-cli" and "just" and then run:
 
-otherwise you will find them in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
+```
+just show
+```
+
+To run all the show cases:
+
+```
+just showcase
+```
+
+Otherwise you will find them in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
