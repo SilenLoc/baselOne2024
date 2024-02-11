@@ -43,3 +43,11 @@ just showcase
 ```
 
 Otherwise you will find them in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
+
+# Showcases
+
+1. Springboot - Kotlin
+## planned:
+2. Gin - Go
+3. Rocket - Rust
+4. ? - C?
