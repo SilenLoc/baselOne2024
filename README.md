@@ -30,7 +30,7 @@ Currently, I focus on gathering experience in Frontend Development and Identity 
 
 The slides are hosted [here](https://silenloc.github.io/baselOne2024/)
 
-For development look at the slides you want to install the "marp-cli" and "just" and then run:
+For development: to look at the slides you want to install the "marp-cli" and "just" and then run:
 
 ```
 just show
