@@ -28,21 +28,42 @@ In my leisure time I like to write code in Rust and Typescript for several partl
 Currently, I focus on gathering experience in Frontend Development and Identity Management.
 
 
+# Usage and how to
+
 The slides are hosted [here](https://silenloc.github.io/baselOne2024/)
 
-For development: to look at the slides you want to install the "marp-cli" and "just" and then run:
+Relevant commands
+
+to look at the slides, install:
+
+- [just](https://github.com/casey/just?tab=readme-ov-file#installation)
+- [marp-cli](https://github.com/marp-team/marp-cli?tab=readme-ov-file#install)
+
+then run:
 
 ```
 just show
 ```
 
-To run all the show cases:
+To run all the show cases, install:
+
+- [just](https://github.com/casey/just?tab=readme-ov-file#installation)
+- [hurl](https://hurl.dev/docs/installation.html)
+
+you need to install 
+
+[java](https://www.java.com/en/) to run the spring-boot showcase.
+[rust toolchain](https://www.rust-lang.org/tools/install) for the rocket showcase
+[go](https://go.dev/doc/install) for the gin showcase
+[ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) for the c showcase and tbd.
+
+then run:
 
 ```
 just showcase
 ```
 
-Otherwise you will find them in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
+Otherwise you will find the slides in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
 
 # Showcases
 
