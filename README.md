@@ -45,6 +45,8 @@ then run:
 just show
 ```
 
+Otherwise you will find the slides in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
+
 To run all the show cases, install:
 
 - [just](https://github.com/casey/just?tab=readme-ov-file#installation)
@@ -52,18 +54,16 @@ To run all the show cases, install:
 
 you need to install 
 
-[java](https://www.java.com/en/) to run the spring-boot showcase.
-[rust toolchain](https://www.rust-lang.org/tools/install) for the rocket showcase
-[go](https://go.dev/doc/install) for the gin showcase
-[ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) for the c showcase and tbd.
+- [java](https://www.java.com/en/) to run the spring-boot showcase.
+- [rust toolchain](https://www.rust-lang.org/tools/install) for the rocket showcase
+- [go](https://go.dev/doc/install) for the gin showcase
+- [ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) for the c showcase and tbd.
 
 then run:
 
 ```
 just showcase
 ```
-
-Otherwise you will find the slides in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
 
 # Showcases
 
