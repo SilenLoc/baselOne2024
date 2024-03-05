@@ -24,7 +24,7 @@ build-and-run-api-test: (up "-d") api-test
 
 
 wait-for-api:
-	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}} --very-verbose
+	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
 
 
 # run acceptance tests against the running test stack
