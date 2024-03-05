@@ -1,0 +1,20 @@
+
+secret := "CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp"
+
+@create-token secret=secret:
+    jwt encode --kid "1209109290" --secret={{secret}} "$(cat payload.json)"
+
+@raw:
+    just create-token
+
+replace:
+    just replace-token $( just raw )
+
+replace-token token:
+    sed -i~ '/^token=/s/=.*/={{token}}/' ./../api_tests/hurl.env.test
+
+token choose="":
+    just create-token | jwt decode - -j | jq .payload"{{choose}}"
+
+install-dev-tools:
+    cargo install jwt-cli

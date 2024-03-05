@@ -1,0 +1,11 @@
+{
+  "my_other_special_claim": "hello world",
+  "email": "john.doe@optravis.com",
+  "name": "John",
+  "iss": "https://auth.my_domain.com/",
+  "sub": "0RXqoCvsfT749nvjc",
+  "aud": ["local.my_domain.com"],
+  "iat": 0,
+  "exp": 32503676400,
+  "azp": "d19Xp8DXI1AQ8eCcx7pxs9nFbQ4T0u0t"
+}

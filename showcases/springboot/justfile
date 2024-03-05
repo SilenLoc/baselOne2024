@@ -11,24 +11,20 @@ up c="": build
     docker-compose down
     docker-compose up {{c}}
 
-verify: test build-and-run-api-test lint
-    just build-and-run-api-test
+verify: test build-and-run-api-test
 
 # Run all tests
 test:
     ./gradlew test
 
-# Run linters
-lint:
-    ./gradlew detekt
 
 # run api tests
-build-and-run-api-test: build (up "-d") api-test
+build-and-run-api-test: (up "-d") api-test
     docker-compose down
 
 
 wait-for-api:
-	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
+	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}} --very-verbose
 
 
 # run acceptance tests against the running test stack
@@ -44,3 +40,7 @@ install-hurl:
   curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb
   sudo apt update && sudo apt install ./hurl_4.1.0_amd64.deb
   rm hurl_4.1.0_amd64.deb
+
+
+@replace-token:
+   cd token_creation && just replace

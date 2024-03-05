@@ -11,6 +11,10 @@ import org.springframework.security.oauth2.jwt.Jwt
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher
+import org.springframework.security.web.util.matcher.OrRequestMatcher
+import java.time.Instant
+import java.util.function.Consumer
 
 @Configuration
 class JWTSecurityConfig {
@@ -24,8 +28,8 @@ class JWTSecurityConfig {
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         return http
             .authorizeHttpRequests { authorizeRequests ->
-                authorizeRequests.requestMatchers("/api/healthz").permitAll()
-                    .anyRequest().authenticated()
+                authorizeRequests.requestMatchers(unauthenticatedMatcher).permitAll()
+                authorizeRequests.anyRequest().authenticated()
             }
             .oauth2ResourceServer { oauth2ResourceServer: OAuth2ResourceServerConfigurer<HttpSecurity?> ->
                 oauth2ResourceServer
@@ -39,12 +43,20 @@ class JWTSecurityConfig {
                     }
             }.build()
     }
+
+    companion object {
+        private val unauthenticatedMatcher = OrRequestMatcher(
+            AntPathRequestMatcher("/api/healthz"),
+        )
+    }
 }
+
+
 
 class LocalJwtDecoder(private val hmac256Secret: String): JwtDecoder{
     override fun decode(token: String?): Jwt {
        val verified = JWT.require(Algorithm.HMAC256(hmac256Secret)).build().verify(token)
-      return Jwt.withTokenValue(verified.token).build()
+      return Jwt(verified.token, Instant.now(), Instant.now(), mapOf("test" to "test"), mapOf("test" to "test"))
     }
 
 }

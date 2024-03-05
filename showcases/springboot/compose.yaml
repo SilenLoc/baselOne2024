@@ -2,6 +2,7 @@ services:
   service:
     image: hurlspring:latest
     environment:
+      - 'JWT_SECRET=CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp'
       - 'SERVER_PORT=8000'
     ports:
       - '8000:8000'
