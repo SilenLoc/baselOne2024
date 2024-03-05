@@ -1,4 +1,4 @@
-name: build-and-release
+name: verfiy spring boot showcase
 
 on:
   push:
