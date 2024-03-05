@@ -46,8 +46,8 @@ Otherwise you will find them in raw markdown [here](https://github.com/SilenLoc/
 
 # Showcases
 
-1. Springboot - Kotlin
+1. [Springboot](https://spring.io/projects/spring-boot) - Kotlin
 ## planned:
-2. Gin - Go
-3. Rocket - Rust
-4. https://facil.io/ - C
+2. [Gin](https://gin-gonic.com/) - Go
+3. [Rocket](https://rocket.rs/) - Rust
+4. [facil](https://facil.io/) - C
