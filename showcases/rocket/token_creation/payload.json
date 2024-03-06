@@ -3,7 +3,7 @@
   "email": "john.doe@test.com",
   "name": "John",
   "iss": "https://auth.my_domain.com/",
-  "sub": "0RXqoCvsfT749nvjc",
+  "sub": "70e493d9-84d0-49b1-9b63-bd55f95a927e",
   "aud": ["local.my_domain.com"],
   "iat": 0,
   "exp": 32503676400,

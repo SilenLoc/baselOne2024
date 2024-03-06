@@ -1,0 +1,16 @@
+/.cargo
+/.github
+/.idea
+/api
+/target
+/.dockerignore
+/.gitignore
+/.releaserc.json
+/CODEOWNERS
+/deny.toml
+/docker-compose.yaml
+/*.svg
+/justfile
+/README.md
+/renovate.json
+*.pem

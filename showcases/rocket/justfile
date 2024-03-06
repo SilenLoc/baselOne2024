@@ -1,3 +1,74 @@
+set dotenv-load
 
+image_name := "hurl-rocket:latest"
+hurl_opts := "--variables-file api_tests/hurl.env.test --test"
+
+@_list:
+	just --list --unsorted
+
+# Perform all verifications (compile, test, lint, etc.)
+verify: test build (up "-d") api-test lint
+    docker-compose down
+
+# Run the service locally (from sources)
 run:
-    cargo run
+	cargo run
+
+
+up c="": build
+    docker-compose down
+    docker-compose up {{c}}
+
+# Watch the source files and run `just verify` when source changes
+watch:
+	cargo watch -- just verify
+
+# Run the tests
+test:
+	cargo hack test --feature-powerset --locked
+	cargo deny check licenses
+
+# Run the static code analysis
+lint:
+	cargo fmt --all -- --check
+	cargo hack clippy --feature-powerset --all-targets --workspace --locked
+	cargo deny check
+
+# Clean up compilation output
+clean:
+	rm -rf target
+	rm -rf node_modules
+
+# Build docker image for testing
+build:
+	docker build -t {{image_name}} .
+
+wait-for-api:
+	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
+
+pre-api-test:
+	hurl api/pre_test/*.hurl {{hurl_opts}}
+
+# run acceptance tests against the running test stack
+api-test *args: wait-for-api
+    hurl api_tests/implemented/*.hurl {{hurl_opts}} {{args}}
+
+# run all acceptance tests against the running test stack, including for non-implemented api
+api-test-not-implemented *args: wait-for-api
+    hurl api_tests/not_implemented/*.hurl {{hurl_opts}} {{args}}
+
+# Install cargo dev-tools used by the `verify` recipe (requires rustup to be already installed)
+install-dev-tools:
+	rustup install stable
+	rustup override set stable
+	cargo install cargo-hack cargo-watch cargo-deny hurl
+
+
+install-hurl:
+	curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb
+	udo apt update && sudo apt install ./hurl_4.1.0_amd64.deb
+	rm hurl_4.1.0_amd64.deb
+
+
+@replace-token:
+	cd token_creation && just replace

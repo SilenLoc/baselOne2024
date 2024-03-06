@@ -1,0 +1,9 @@
+services:
+  service:
+    image: hurl-rocket:latest
+    environment:
+      - 'ROCKET_PORT=8001'
+      - 'AUTH_HS256_SECRET=CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp'
+      - 'AUTH_JWT_AUD=local.my_domain.com'
+    ports:
+      - '8001:8001'

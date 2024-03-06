@@ -21,6 +21,10 @@ install:
 
 showcase:
     cd showcases/springboot && just verify
+    cd showcases/rocket && just verify
 
 verify-spring:
     cd showcases/springboot && just verify
+
+verify-rocket:
+    cd showcases/rocket && just verify
