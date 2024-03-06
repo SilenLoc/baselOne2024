@@ -68,7 +68,8 @@ just showcase
 # Showcases
 
 1. [Springboot](https://spring.io/projects/spring-boot) - Kotlin
+2. [Rocket](https://rocket.rs/) - Rust
+
 ## planned:
-2. [Gin](https://gin-gonic.com/) - Go
-3. [Rocket](https://rocket.rs/) - Rust
-4. [facil](https://facil.io/) - C
+1. [Gin](https://gin-gonic.com/) - Go
+2. [facil](https://facil.io/) - C

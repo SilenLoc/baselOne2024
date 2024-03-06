@@ -1,4 +1,4 @@
-# wait for healthy
+# try protected endpoint with token
 GET {{target}}/api/protected
 Authorization: Bearer {{token}}
 
@@ -6,7 +6,7 @@ Authorization: Bearer {{token}}
 HTTP 200
 
 
-# wait for healthy
+# try protected endpoint without token
 GET {{target}}/api/protected
 Authorization: Bearer something wrong
 
