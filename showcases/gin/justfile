@@ -1,0 +1,12 @@
+
+
+run:
+    go run main.go
+
+test:
+    go test .
+
+
+install-dep:
+    go get -u github.com/gin-gonic/gin
+
