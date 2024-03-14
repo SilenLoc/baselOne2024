@@ -13,7 +13,7 @@ RUN cargo chef cook --release --target x86_64-unknown-linux-musl --recipe-path r
 COPY . .
 RUN cargo build --release --target x86_64-unknown-linux-musl
 
-FROM alpine:3.18.3 AS runtime
+FROM alpine:3.19.1 AS runtime
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/hurl-rocket /usr/local/bin/
 ENV ROCKET_ADDRESS=0.0.0.0
 EXPOSE 8001
