@@ -1,27 +1,28 @@
 package com.example.hurlspringboot
 
-import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
+import com.nimbusds.jwt.JWTClaimNames
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer
-import org.springframework.security.oauth2.jwt.Jwt
+import org.springframework.security.oauth2.core.*
+import org.springframework.security.oauth2.jwt.*
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.oauth2.jwt.JwtDecoders;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 import org.springframework.security.web.util.matcher.OrRequestMatcher
-import java.time.Instant
-import java.util.function.Consumer
+import javax.crypto.spec.SecretKeySpec
 
 @Configuration
 class JWTSecurityConfig {
     @Value("\${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
     var issuerUri: String? = null
+
     @Value("\${spring.security.oauth2.resourceserver.jwt.hmac256Secret}")
     var hmac256Secret: String? = null
+
+    @Value("\${spring.security.oauth2.resourceserver.jwt.audience}")
+    var audience: String? = null
 
     @Bean
     @Throws(Exception::class)
@@ -34,12 +35,9 @@ class JWTSecurityConfig {
             .oauth2ResourceServer { oauth2ResourceServer: OAuth2ResourceServerConfigurer<HttpSecurity?> ->
                 oauth2ResourceServer
                     .jwt { jwt ->
-                        jwt.decoder { token ->
-                            issuerUri?.let { issuer -> JwtDecoders.fromIssuerLocation(issuer) }
-                                ?: hmac256Secret?.let { secret -> LocalJwtDecoder(secret).decode(token) }
-                                ?: throw IllegalArgumentException("No issuer and no secret set, see env vars")
-                        }
-
+                        val decoder = createDecoder(secret = hmac256Secret, issuerUri = issuerUri)
+                        decoder?.setJwtValidator(createTokenValidator(audience))
+                        jwt.decoder(decoder)
                     }
             }.build()
     }
@@ -52,11 +50,20 @@ class JWTSecurityConfig {
 }
 
 
+private fun createDecoder(issuerUri: String?, secret: String?) =
+    secret?.let {
+        val spec = SecretKeySpec(secret.toByteArray(), 0, secret.length, "HmacSHA256")
+        NimbusJwtDecoder.withSecretKey(spec).build()
+    } ?: issuerUri?.let { JwtDecoders.fromOidcIssuerLocation(it) }
 
-class LocalJwtDecoder(private val hmac256Secret: String): JwtDecoder{
-    override fun decode(token: String?): Jwt {
-       val verified = JWT.require(Algorithm.HMAC256(hmac256Secret)).build().verify(token)
-      return Jwt(verified.token, Instant.now(), Instant.now(), mapOf("test" to "test"), mapOf("test" to "test"))
+
+fun createTokenValidator(
+    audience: String?
+): OAuth2TokenValidator<Jwt> = DelegatingOAuth2TokenValidator(
+    audience?.let { claimAudienceValidator(it) } ?: throw IllegalStateException("audience must be set") ,
+)
+
+internal fun claimAudienceValidator(audience: String) =
+    JwtClaimValidator<List<String>?>(JWTClaimNames.AUDIENCE) { aud ->
+        aud?.contains(audience) ?: false
     }
-
-}
