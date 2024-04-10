@@ -109,17 +109,17 @@ impl<'r> FromRequest<'r> for AccessToken {
             .next()
             .and_then(|v| v.strip_prefix("Bearer "))
         else {
-            return Outcome::Failure((Status::Unauthorized, anyhow!("missing authorization")));
+            return Outcome::Error((Status::Unauthorized, anyhow!("missing authorization")));
         };
         let Outcome::Success(decoders) = request.guard::<&State<Decoders>>().await else {
             error!("no jwt decoding key found");
-            return Outcome::Forward(());
+            return Outcome::Forward(Status::Unauthorized);
         };
         match decoders.decode(token) {
             Ok(token) => Outcome::Success(token),
             Err(err) => {
                 warn!("Invalid token: '{token}'");
-                return Outcome::Failure((Status::Unauthorized, err));
+                return Outcome::Error((Status::Unauthorized, err));
             }
         }
     }
