@@ -19,7 +19,7 @@ Repo with all the slides and showcases for the potential baselOne 2024 talk
 - how hurl closes the gap (3 min)
 -  showcase with real life backend stacks (10 min)
 - how to install hurl (20 seconds showing the page)
-- why use hurl and not {{tool x}} and also with {{tool x}} (4 min)
+- when hurl and when not (4 min)
 
 ### Bio
 
