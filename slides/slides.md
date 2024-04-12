@@ -57,7 +57,47 @@ Hurl closes the gap
            /________Unit_tests________\  
           /____________________________\
 ```
+---
+Hurl closes the gap
 
+```
+                        /\
+                       /  \         
+                      /____\      
+                     /_____ \  
+                    /__e2e___\  
+                   /__________\_____High value
+                  /____________\
+                 /______________\
+                /________________\______Higher value
+               /__________________\ 
+              /__Integration tests_\
+             /______________________\
+            /________________________\____Lower value
+           /________Unit_tests________\
+          /____________________________\
+```
+     
+---
+Hurl closes the gap
+
+```js
+                        /\
+                       /  \         
+                      /____\      
+                     /_____ \  
+                    /__e2e___\ 
+                   /__________\_____High value
+                  /____________\
+                 /______________\
+                /________________\______Higher value
+               /__________________\ 
+              /__Integration tests_\ 
+             /______________________\
+            /_____> Hurl tests <_____\____Lower cost, high value
+           /________Unit_tests________\  
+          /____________________________\
+```
 
 ---
 Showcase
@@ -68,4 +108,18 @@ Easy to "install"
 https://hurl.dev/docs/installation.html
 
 ---
-Why not tool x
+Hurl is the right choice
+
+- if you prefer CLI
+- if you prefer raw text
+- if you want to run api tests local and CI
+
+---
+Hurl is the wrong choice
+
+- if you prefer GUIs
+- if you want to script
+- if you do not care about it
+
+
+---
