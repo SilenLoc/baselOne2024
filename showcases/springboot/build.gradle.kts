@@ -37,7 +37,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.kotest:kotest-assertions-core:5.8.1")
 	testImplementation("io.kotest:kotest-framework-datatest:5.9.0")
-	testImplementation("io.kotest:kotest-runner-junit5:5.8.1")
+	testImplementation("io.kotest:kotest-runner-junit5:5.9.0")
 }
 
 tasks.withType<KotlinCompile> {
