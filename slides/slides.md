@@ -15,105 +15,58 @@ _paginate: skip
 ```
            
 ---
-Story time
-```
-I like tools that start simple and useful
-```
+My most loved tools
+
+
+**just** - **broot** - **wezterm** - **Hurl**
+
+(links in the end slide)
 
 ---
-Hurl closes the gap
+My most loved tools
+```
+      │                                                        
+      │                                                        
+      │                                    xxxxxxxxxx          
+      │                           xxxxxxxxxx                   
+      │                  xxxxxxxxxx                            
+      │          xxxxxxxxx                                     
+      │      xxxxx                                             
+      │    xxx                                                 
+      │    x                                                   
+      │   xx                                                   
+value │   x                                                    
+      │   x                                                    
+      │   x                                                    
+      │  x                                                     
+      │ xx                                                     
+      │ x                                                      
+      │xx                                                      
+      │x                                                       
+      │x                                                       
+      │x                                                       
+      └────────────────────────────────────────────────────────
+                   time invested to learn the tool             
+```
 
-```
-                        /\
-                       /  \         
-                      /____\      
-                     /_____ \  
-                    /__e2e___\  
-                   /__________\_____High cost
-                  /____________\
-                 /______________\
-                /________________\______Higher cost
-               /__________________\ 
-              /__Integration tests_\
-             /______________________\
-            /________________________\____Lower cost
-           /________Unit_tests________\
-          /____________________________\
-```
-     
----
-Hurl closes the gap
-
-```js
-                        /\
-                       /  \         
-                      /____\      
-                     /_____ \  
-                    /__e2e___\ 
-                   /__________\_____High cost
-                  /____________\
-                 /______________\
-                /________________\______Higher cost
-               /__________________\ 
-              /__Integration tests_\ 
-             /______________________\
-            /_____> Hurl tests <_____\____Lower cost
-           /________Unit_tests________\  
-          /____________________________\
-```
----
-Hurl closes the gap
-
-```
-                        /\
-                       /  \         
-                      /____\      
-                     /_____ \  
-                    /__e2e___\  
-                   /__________\_____High value
-                  /____________\
-                 /______________\
-                /________________\______Higher value
-               /__________________\ 
-              /__Integration tests_\
-             /______________________\
-            /________________________\____Lower value
-           /________Unit_tests________\
-          /____________________________\
-```
-     
----
-Hurl closes the gap
-
-```js
-                        /\
-                       /  \         
-                      /____\      
-                     /_____ \  
-                    /__e2e___\ 
-                   /__________\_____High value
-                  /____________\
-                 /______________\
-                /________________\______Higher value
-               /__________________\ 
-              /__Integration tests_\ 
-             /______________________\
-            /_____> Hurl tests <_____\____Lower cost, high value
-           /________Unit_tests________\  
-          /____________________________\
-```
 ---
 The Hurl file
 
+> example.hurl
+
 ```yaml
 # We can write comments and describe what we are doing in short
+# Test if example.org/api is available
 GET https://example.org/api
 HTTP 200
 
+# This is a second entry in the hurl file
+GET https://example.org/api
+HTTP 200
 [Asserts]
 # We can assert headers
 header "Content-Type" contains "utf-8"
-# We can assert the body with filters over json
+# We can assert the body with jsonpath over json
 jsonpath "$.slideshow.title" == "A beautiful \u{2708}!"
 ```
 ---
@@ -133,12 +86,7 @@ status < 300
 ```
 
 ---
-Showcase
-
-- asserts
-- captures
-- variables
-- how to drive Hurl
+ Showcase
 
 ---
 Easy to "install"
@@ -157,5 +105,15 @@ Hurl is the wrong choice
 - if you prefer GUIs
 - if you want to script
 - if you do not care about it
+
+---
+Links
+
+- talk https://github.com/SilenLoc/baselOne2024
+- talk slides https://silenloc.github.io/baselOne2024/
+- hurl https://github.com/Orange-OpenSource/hurl
+- just https://github.com/casey/just
+- wezterm https://github.com/wez/wezterm
+- broot https://github.com/Canop/broot
 
 ---

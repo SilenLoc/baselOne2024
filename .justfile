@@ -18,6 +18,8 @@ install-scoop:
 install:
     brew install marp-cli
 
+verify:
+    just showcase
 
 showcase:
     cd showcases/springboot && just verify
