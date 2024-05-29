@@ -3,11 +3,16 @@ package main
 import "github.com/gin-gonic/gin"
 import "net/http"
 
+import (
+	"log"
+	"os"
+)
+
 func setupRouter() *gin.Engine {
 	r := gin.Default()
 
 	// Get user value
-	r.GET("/healthz", func(c *gin.Context) {
+	r.GET("/api/healthz", func(c *gin.Context) {
 		c.Status(http.StatusOK)
 	})
 
@@ -15,7 +20,15 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
-	r := setupRouter()
-	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8002")
+	logx := log.New(os.Stdout, "hurl-example:", log.LstdFlags)
+
+	runner := setupRouter()
+	if runner != nil {
+		var result = runner.Run(":8002")
+		if result != nil {
+			logx.Println("Shutdown")
+		} else {
+			logx.Println("Shutdown with err")
+		}
+	}
 }

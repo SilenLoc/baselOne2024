@@ -2,6 +2,8 @@ set export
 
 PORT := "5000"
 
+alias verify := showcase
+
 # show slides
 show:
     marp -s ./slides
@@ -18,15 +20,16 @@ install-scoop:
 install:
     brew install marp-cli
 
-verify:
-    just showcase
-
 showcase:
     cd showcases/springboot && just verify
     cd showcases/rocket && just verify
+    cd showcases/gin && just verify
 
 verify-spring:
     cd showcases/springboot && just verify
 
 verify-rocket:
     cd showcases/rocket && just verify
+
+verify-gin:
+    cd showcases/gin && just verify
