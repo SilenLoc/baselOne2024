@@ -1,4 +1,4 @@
-name: verfiy rocket showcase
+name: verify flask showcase
 
 on:
   push:

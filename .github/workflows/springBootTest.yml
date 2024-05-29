@@ -1,4 +1,4 @@
-name: verfiy spring boot showcase
+name: verify spring boot showcase
 
 on:
   push:

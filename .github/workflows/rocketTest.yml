@@ -1,4 +1,4 @@
-name: verfiy rocket showcase
+name: verify rocket showcase
 
 on:
   push:

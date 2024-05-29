@@ -1,4 +1,4 @@
-name: verfiy rocket showcase
+name: verify gin showcase
 
 on:
   push:
@@ -22,4 +22,5 @@ jobs:
       - uses: taiki-e/install-action@v2
         with:
           tool: just@1,hurl@4
+      - run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.0
       - run: just verify-gin
