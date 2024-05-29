@@ -48,17 +48,25 @@ just show
 
 Otherwise you will find the slides in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
 
-To run all the show cases, install:
+To run all the showcases, install:
 
 - [just](https://github.com/casey/just?tab=readme-ov-file#installation)
 - [hurl](https://hurl.dev/docs/installation.html)
+- [docker](https://docs.docker.com/engine/install/)
 
-you need to install 
 
-- [java](https://www.java.com/en/) to run the spring-boot showcase.
-- [rust toolchain](https://www.rust-lang.org/tools/install) for the rocket showcase
-- [go](https://go.dev/doc/install) for the gin showcase
-- [ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) for the c showcase and tbd.
+
+If you want to run the showcases natively you need to install:
+
+- [java](https://www.java.com/en/) spring-boot showcase.
+- [Kotlin](https://kotlinlang.org/docs/getting-started.html) spring-boot showcase.
+- [rust toolchain](https://www.rust-lang.org/tools/install) rocket showcase
+- [go](https://go.dev/doc/install) gin showcase
+- [golangci-lint] gin showcase
+- [python3] flask showcase
+- [pip] flask showcase
+- [ruff] lint flask showcase
+- [ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) maybe for the rust showcases.
 
 then run:
 
@@ -71,5 +79,5 @@ just showcase
 1. [Springboot](https://spring.io/projects/spring-boot) - Kotlin
 2. [Rocket](https://rocket.rs/) - Rust
 3. [Gin](https://gin-gonic.com/) - Go
-3. [Flask](https://flask-restful.readthedocs.io/en/latest/) - Go
+4. [Flask](https://flask-restful.readthedocs.io/en/latest/) - Python
 
