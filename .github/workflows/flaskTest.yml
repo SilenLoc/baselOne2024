@@ -1,0 +1,25 @@
+name: verfiy rocket showcase
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just@1,hurl@4
+      - run: just verify-python

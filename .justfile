@@ -33,3 +33,6 @@ verify-rocket:
 
 verify-gin:
     cd showcases/gin && just verify
+
+verify-flask:
+    cd showcases/flask && just verify

@@ -1,0 +1,72 @@
+#!/usr/bin/env just --justfile
+
+image_name := "hurl-flask:latest"
+hurl_opts := "--variables-file api_tests/hurl.env.test --test"
+
+run: install
+    python src/main.py
+
+install:
+    python -m pip install --upgrade pip
+    pip install ruff
+    python -m pip install -r requirements.txt
+
+fmt:
+    ruff format
+
+test:
+    true
+
+verify: test (up "-d") api-test lint
+    docker-compose down
+
+install-dep:
+    sudo dnf install gcc
+    sudo dnf install libulfius-dev
+
+up c="": build
+    docker-compose down
+    docker-compose up {{c}}
+
+# Watch the source files and run `just verify` when source changes
+watch:
+	cargo watch -- just verify
+
+# Run the static code analysis
+lint: install
+	ruff check
+
+# Build docker image for testing
+build:
+	docker build -t {{image_name}} .
+
+wait-for-api:
+	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
+
+pre-api-test:
+	hurl api/pre_test/*.hurl {{hurl_opts}}
+
+# run acceptance tests against the running test stack
+api-test *args: wait-for-api
+    hurl api_tests/implemented/*.hurl {{hurl_opts}} {{args}}
+
+# run all acceptance tests against the running test stack, including for non-implemented api
+api-test-not-implemented *args: wait-for-api
+    hurl api_tests/not_implemented/*.hurl {{hurl_opts}} {{args}}
+
+# Install cargo dev-tools used by the `verify` recipe (requires rustup to be already installed)
+install-dev-tools:
+    just install-linter
+
+install-linter:
+    brew install golangci-lint
+    brew upgrade golangci-lint
+
+install-hurl:
+	curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb
+	udo apt update && sudo apt install ./hurl_4.1.0_amd64.deb
+	rm hurl_4.1.0_amd64.deb
+
+
+@replace-token:
+	cd token_creation && just replace

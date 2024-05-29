@@ -70,7 +70,6 @@ just showcase
 
 1. [Springboot](https://spring.io/projects/spring-boot) - Kotlin
 2. [Rocket](https://rocket.rs/) - Rust
+3. [Gin](https://gin-gonic.com/) - Go
+3. [Flask](https://flask-restful.readthedocs.io/en/latest/) - Go
 
-## planned:
-1. [Gin](https://gin-gonic.com/) - Go
-2. [facil](https://facil.io/) - C
