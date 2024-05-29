@@ -14,12 +14,13 @@ Repo with all the slides and showcases for the potential baselOne 2024 talk
 - testing the full backend stack matters
 - testing authorization and other security topics can be easy
 
-### The session will consist of 5 parts:
-- why unit tests, integration tests and are not enough.(2 min)
-- how hurl closes the gap (3 min)
--  showcase with real life backend stacks (10 min)
+### The session will consist of:
+- my favorite tools.(2 min)
+- hurl files (3 min)
+- showcase with real life backend stacks (10 min)
 - how to install hurl (20 seconds showing the page)
 - when hurl and when not (4 min)
+- outro
 
 ### Bio
 
