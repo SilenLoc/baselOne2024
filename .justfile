@@ -24,6 +24,7 @@ showcase:
     cd showcases/springboot && just verify
     cd showcases/rocket && just verify
     cd showcases/gin && just verify
+    cd showcases/flask && just verify
 
 verify-spring:
     cd showcases/springboot && just verify
@@ -36,3 +37,6 @@ verify-gin:
 
 verify-flask:
     cd showcases/flask && just verify
+
+zoom size:
+    flatpak run org.wezfurlong.wezterm --config 'font_size={{size}}' &
