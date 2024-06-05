@@ -1,5 +1,7 @@
 # baselOne2024
-Repo with all the slides and showcases for the potential baselOne 2024 talk
+Repo with all the slides and showcases for the baselOne 2024 talk
+
+Current state is that I got accepted, language is not sure yet
 
 ## The talk
 
