@@ -4,10 +4,10 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '/showcases/rocket'
+      - 'showcases/rocket/**'
   pull_request:
     paths:
-      - '/showcases/rocket'
+      - 'showcases/rocket/**'
   workflow_dispatch:
 
 env:
