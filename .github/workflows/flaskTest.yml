@@ -3,7 +3,11 @@ name: verify flask showcase
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'showcases/flask/**'
   pull_request:
+    paths:
+      - 'showcases/flask/**'
   workflow_dispatch:
 
 

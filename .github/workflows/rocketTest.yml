@@ -3,8 +3,15 @@ name: verify rocket showcase
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'showcases/rocket/**'
   pull_request:
+    paths:
+      - 'showcases/rocket/**'
   workflow_dispatch:
+
+env:
+  CARGO_INCREMENTAL: 0
 
 jobs:
   verify:

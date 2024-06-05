@@ -7,12 +7,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = { version = "=0.5.1", features = ["json", "http2"] }
-serde = { version = "1.0.200", features = ["derive"] }
-serde_json = "1.0"
+rocket = { version = "=0.5.1", default-features = false }
+serde = { version = "1.0.200", default-features = false }
 anyhow = "1.0"
-uuid = { version = "1.8", features = ["serde", "v4"] }
+uuid = { version = "1.8", features = ["serde"], default-features = false }
 
 jsonwebtoken = { version = "9.3", default-features = false }
 
-reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "gzip", "brotli", "deflate"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-pki-types"] }
+
+
+[profile.dev.build-override]
+opt-level = 3

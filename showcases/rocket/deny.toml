@@ -1,5 +1,5 @@
 [licenses]
-allow = ["MIT", "Unicode-DFS-2016", "Apache-2.0", "BSD-3-Clause", "ISC", "OpenSSL", "Unlicense", "Zlib", "MPL-2.0"]
+allow = ["MIT", "Unicode-DFS-2016", "Apache-2.0", "BSD-3-Clause", "ISC", "OpenSSL", "Unlicense", "Zlib"]
 private = { ignore = true }
 
 [[licenses.clarify]]
