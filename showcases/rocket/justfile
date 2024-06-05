@@ -61,7 +61,8 @@ api-test-not-implemented *args: wait-for-api
 install-dev-tools:
 	rustup install stable
 	rustup override set stable
-	cargo install cargo-hack cargo-watch cargo-deny hurl
+	cargo install cargo-hack cargo-watch cargo-deny hurl cargo-machete
+	cargo install cargo-features-manager
 
 
 install-hurl:
@@ -72,3 +73,8 @@ install-hurl:
 
 @replace-token:
 	cd token_creation && just replace
+
+
+prune:
+    cargo machete
+    cargo features prune

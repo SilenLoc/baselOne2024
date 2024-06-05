@@ -3,7 +3,11 @@ name: verify spring boot showcase
 on:
   push:
     branches: [ main ]
+    paths:
+      - '/showcases/springboot'
   pull_request:
+    paths:
+      - '/showcases/springboot'
   workflow_dispatch:
 
 env:
