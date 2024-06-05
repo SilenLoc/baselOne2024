@@ -4,10 +4,10 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '/showcases/springboot'
+      - 'showcases/springboot/**'
   pull_request:
     paths:
-      - '/showcases/springboot'
+      - 'showcases/springboot/**'
   workflow_dispatch:
 
 env:
