@@ -3,7 +3,11 @@ name: verify gin showcase
 on:
   push:
     branches: [ main ]
+    paths:
+      - '/showcases/gin'
   pull_request:
+    paths:
+      - '/showcases/gin'
   workflow_dispatch:
 
 
