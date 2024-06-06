@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.5"
 	kotlin("jvm") version "2.0.0"
 	kotlin("plugin.spring") version "2.0.0"
+	id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
 }
 
 group = "com.example"
@@ -31,6 +32,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("com.auth0:java-jwt:4.4.0")
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
+
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -38,6 +41,7 @@ dependencies {
 	testImplementation("io.kotest:kotest-assertions-core:5.9.1")
 	testImplementation("io.kotest:kotest-framework-datatest:5.9.1")
 	testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
+
 }
 
 tasks.withType<KotlinCompile> {

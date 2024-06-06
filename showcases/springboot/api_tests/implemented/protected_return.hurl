@@ -2,8 +2,11 @@
 GET {{target}}/api/protected/return
 Authorization: Bearer {{token}}
 
+HTTP *
 
-HTTP 200
+[Asserts]
+status >= 200
+body endsWith "world!"
 
 
 # try protected endpoint with token
@@ -14,7 +17,9 @@ HTTP *
 
 [Asserts]
 status >= 200
-body endsWith "baselone"
+body endsWith "baselone!"
+
+
 
 # try protected endpoint without token
 GET {{target}}/api/protected/return

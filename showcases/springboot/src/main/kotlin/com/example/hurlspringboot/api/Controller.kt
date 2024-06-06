@@ -1,5 +1,6 @@
-package com.example.hurlspringboot
+package com.example.hurlspringboot.api
 
+import com.example.hurlspringboot.model.processHelloOrGoodbye
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -23,20 +24,15 @@ internal class Controller{
 
     @GetMapping("/protected/return")
     fun protectedReturn(
-        @RequestParam("text") text: Optional<String>
+        @RequestParam("text") textOrNone: Optional<String>
     ): ResponseEntity<String> {
-        return ResponseEntity.ok(helloWorld(text.orElse("from no one")))
+
+        val text = textOrNone.handleNone()
+        val helloOrGoodbye = processHelloOrGoodbye(text).text
+
+        return ResponseEntity.ok("- $helloOrGoodbye!")
     }
 
-
 }
 
-fun helloWorld(moreText: String): String{
-    val res = listOf("hello", "world").random()
-    return "$res, $moreText"
-}
-
-//@JvmInline
-//value class HelloWorld(val text: String){
-//
-//}
+private fun Optional<String>.handleNone(): String = this.orElse("world")

@@ -13,6 +13,11 @@ up c="": build
 
 verify: test build-and-run-api-test
 
+show: build-and-run-api-test
+
+dry:
+    just  --dry-run build-and-run-api-test
+
 # Run all tests
 test:
     ./gradlew test

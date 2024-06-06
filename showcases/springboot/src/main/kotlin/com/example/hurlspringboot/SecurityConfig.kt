@@ -35,8 +35,7 @@ class JWTSecurityConfig {
             .oauth2ResourceServer { oauth2ResourceServer: OAuth2ResourceServerConfigurer<HttpSecurity?> ->
                 oauth2ResourceServer
                     .jwt { jwt ->
-                        val decoder = createDecoder(secret = hmac256Secret, issuerUri = issuerUri)
-                        decoder?.setJwtValidator(createTokenValidator(audience))
+                        val decoder = createDecoderWithValidator(issuerUri, hmac256Secret, audience)
                         jwt.decoder(decoder)
                     }
             }.build()
@@ -50,20 +49,27 @@ class JWTSecurityConfig {
 }
 
 
-private fun createDecoder(issuerUri: String?, secret: String?) =
+
+
+private fun createDecoderWithValidator(issuerUri: String?, secret: String?, audience: String?) = createDecoder(issuerUri, secret).also {
+    it?.setJwtValidator(createTokenValidator(audience))
+}
+
+private fun createDecoder(issuerUri: String?, secret: String?): NimbusJwtDecoder? =
     secret?.let {
         val spec = SecretKeySpec(secret.toByteArray(), 0, secret.length, "HmacSHA256")
         NimbusJwtDecoder.withSecretKey(spec).build()
     } ?: issuerUri?.let { JwtDecoders.fromOidcIssuerLocation(it) }
 
 
+
 fun createTokenValidator(
     audience: String?
 ): OAuth2TokenValidator<Jwt> = DelegatingOAuth2TokenValidator(
-    audience?.let { claimAudienceValidator(it) } ?: throw IllegalStateException("audience must be set") ,
+    audience?.let { audienceValidator(it) } ?: throw IllegalStateException("audience must be set") ,
 )
 
-internal fun claimAudienceValidator(audience: String) =
+internal fun audienceValidator(audience: String) =
     JwtClaimValidator<List<String>?>(JWTClaimNames.AUDIENCE) { aud ->
         aud?.contains(audience) ?: false
     }
