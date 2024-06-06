@@ -9,7 +9,7 @@ Current state is that I got accepted, language is not sure yet
     I like my API tests plain and raw
 
 ### Description
-    API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead mentally and on you machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Eventhough hurl will be readable and understandable for everyone, the talk aknowledges that the "CLI only" taste to it is not for everyone.
+    API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
 
 ### What listeners can take home: 
 - plain text files are great
