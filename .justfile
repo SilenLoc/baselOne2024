@@ -38,5 +38,7 @@ verify-gin:
 verify-flask:
     cd showcases/flask && just verify
 
+prepare: (zoom "25")
+
 zoom size:
-    flatpak run org.wezfurlong.wezterm --config 'font_size={{size}}' &
+    wezterm --config 'font_size={{size}}' &
