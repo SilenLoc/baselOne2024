@@ -96,8 +96,9 @@ https://hurl.dev/docs/installation.html
 Hurl is the right choice
 
 - if you prefer CLI
-- if you prefer raw text
-- if you want to run api tests in local and CI
+- if you prefer plain text
+- local simple test pipeline
+- 
 
 ---
 Hurl is the wrong choice
@@ -107,13 +108,10 @@ Hurl is the wrong choice
 - if you do not care about it
 
 ---
-Links
+The talk and more links at github
 
-- talk https://github.com/SilenLoc/baselOne2024
-- talk slides https://silenloc.github.io/baselOne2024/
-- hurl https://github.com/Orange-OpenSource/hurl
-- just https://github.com/casey/just
-- wezterm https://github.com/wez/wezterm
-- broot https://github.com/Canop/broot
+![qr code w:300px](https://raw.githubusercontent.com/SilenLoc/baselOne2024/main/img/talk_qr.svg)
+
+ https://github.com/SilenLoc/baselOne2024
 
 ---

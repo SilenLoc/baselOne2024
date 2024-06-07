@@ -21,7 +21,7 @@ class HelloTest: FunSpec( {
             val res: BetterHello = BetterHello.hello("world")
 
             test("should contain either hello or goodbye"){
-                (res.contains("hello") || res.contains("goodbye") || res.endsWith("world")) shouldBe true
+                (res.contains("hello") || res.contains("goodbye") && res.endsWith("world")) shouldBe true
             }
         }
 

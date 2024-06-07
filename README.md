@@ -3,6 +3,16 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 
 Current state is that I got accepted, language is not sure yet
 
+Tools used in the talk:
+
+- talk slides https://silenloc.github.io/baselOne2024/
+- hurl https://github.com/Orange-OpenSource/hurl
+- just https://github.com/casey/just
+- wezterm https://github.com/wez/wezterm
+- broot https://github.com/Canop/broot
+- jwt-cli https://github.com/mike-engel/jwt-cli
+
+
 ## The talk
 
 ### Title

@@ -62,9 +62,94 @@ First the security config,
 We can see that we actually have security set up with JWT.
 The JWT decode is swappable,  we can use a symmetric key an asymmetric keys with fromOidcIssuerLocation
 In production, we use fromOidcIssuerLocation, in our tests we will use a symmetric key to create a token we can work with
+The secret we saw in the docker-compose
 
 Like this we can test security with hurl in very detailed ways if we want to.
 
 - show docker compose
 
-Now to run the tests I prefer to let the application run inside the same docker image I use in production.
+Now let us go to our tests
+
+- show api_tests folder
+
+- show env file
+
+here we have a hurl.env.test file, which is a simple env file.
+
+In here we have variables we can use inside of hurl files,
+namely target
+token
+wrong_token
+
+
+Let us go to the tests for the implemented features
+
+We can see here the four files:
+
+- healthz.hurl
+- protected.hurl
+- protected_return.hurl
+- return_and_reuse.hurl
+
+Let us jump into them.
+
+- show one by one
+
+- 1
+We use healthz to check if we can run our tests against our docker image
+
+- 2
+We can run requests against protected routes if we include the token
+
+- 3
+We can assert the different parts of a response
+
+- 4
+We can capture, adjust and then reuse a response
+
+When I run them it looks like that:
+
+The recipe I run now is to show what will be run in "just verify"
+- run just dry  
+
+We run the tests
+We shut down any running docker-compose stack
+We start the docker-compose stack
+We wait for the stack to come alive
+We run the hurl tests against the stack
+
+So let us run the tests once
+
+- run just verify
+
+Now...
+
+I prepared a refactor of our application logic.
+
+- Go to Controller, last endpoint
+
+What are we doing in this endpoint:
+
+We take the text from the request if it is there, if not it will be "world"
+Then we process this with our HelloProcessing function.
+
+- Go into function
+
+This is just some glue code, let us go to the HelloGoodbye function
+
+- Go into function
+
+The function returns either "hello" or "goodbye" plus the text 
+
+- Go to the test
+
+We see here that we have a good test for this function.
+Here we prove that our class behaves the same as the other implementation
+
+Let us replace the implementation
+
+- replace impl
+
+Let us run the test stack
+
+- run "just verify"
