@@ -1,5 +1,6 @@
 package com.example.hurlspringboot
 
+import com.example.hurlspringboot.model.BetterHello
 import com.example.hurlspringboot.model.helloOrGoodbye
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
@@ -29,18 +30,4 @@ class HelloTest: FunSpec( {
 })
 
 
-@JvmInline
-private value class BetterHello(val value: String) {
 
-    fun contains(text: String): Boolean{
-        return value.contains(text)
-    }
-
-    fun endsWith(text: String): Boolean{
-        return value.endsWith(text)
-    }
-
-    companion object{
-        fun hello(text: String): BetterHello = BetterHello("${listOf("hello", "goodbye").random()}, $text")
-    }
-}

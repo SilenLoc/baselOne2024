@@ -1,10 +1,10 @@
 package com.example.hurlspringboot.model
 
 
-fun processHelloOrGoodbye(text: String): HelloOrGoodbye = HelloOrGoodbye(helloOrGoodbye(text))
+fun processHelloOrGoodbye(text: String): HelloOrGoodbye = HelloOrGoodbye(BetterHello.hello(text))
 
 
 data class HelloOrGoodbye(
-    val text: String,
+    val text: BetterHello,
     val timeStamp: Long = System.currentTimeMillis(),
 )
