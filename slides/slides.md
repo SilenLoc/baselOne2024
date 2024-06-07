@@ -21,8 +21,9 @@ _paginate: skip
 ---
 My most loved tools
 
-
-**just** - **broot** - **wezterm** - **Hurl**
+```
+Just - Broot - Wezterm - Hurl
+```
 
 <!--
 are my favorite tools
@@ -65,9 +66,15 @@ From the first second you touch hurl it provides value, we will see this later.
 ---
 Who made Hurl?
 
+```
 Orange - Open Source
-
+```
 ---
+What is Hurl?
+
+```
+Postman - Selenium - Karate
+```
 
 ---
 The Hurl file
