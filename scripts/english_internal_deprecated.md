@@ -20,7 +20,7 @@ Many tools need some sort of "getting started", my favorite tools do not.
 
 From the first second you touch hurl it provides value, we will see this later.
 
-- show hurl file 
+- show hurl file
 
 Now let us look at a hurl file
 I will let you read the slide for 10 seconds
