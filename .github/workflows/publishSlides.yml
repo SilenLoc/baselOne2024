@@ -3,9 +3,6 @@ name: publish slides
 on:
   push:
     branches: [main]
-    paths:
-      - 'slides/**'
-      - 'img/**'
   pull_request:
   workflow_dispatch:
 
