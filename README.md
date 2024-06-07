@@ -21,26 +21,6 @@ Tools used in the talk:
 ### Description
     API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
 
-### What listeners can take home: 
-- plain text files are great
-- testing the full backend stack matters
-- testing authorization and other security topics can be easy
-
-### The session will consist of:
-- my favorite tools.(2 min)
-- hurl files (3 min)
-- showcase with real life backend stacks (10 min)
-- how to install hurl (20 seconds showing the page)
-- when hurl and when not (4 min)
-- outro
-
-### Bio
-
-I develop software at Optravis LLC since three years across diverse domains.
-In my leisure time I like to write code in Rust and Typescript for several partly finished projects.
-Currently, I focus on gathering experience in Frontend Development and Identity Management.
-
-
 # Usage and how to
 
 The slides are hosted [here](https://silenloc.github.io/baselOne2024/)
