@@ -1,6 +1,10 @@
 
 hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 
+
+@default:
+    just --choose
+
 @list:
     just --list
 

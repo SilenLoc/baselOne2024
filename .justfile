@@ -2,6 +2,10 @@ set export
 
 PORT := "5000"
 
+
+@default:
+    just --choose
+
 alias verify := showcase
 
 # show slides
