@@ -9,7 +9,7 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 
 <table>
   <tr>
-    <img src="img/opt_banner.png" width="300" height="100"/>
+    <img src="img/opt_banner.png" width="300" height="80"/>
   </tr>
   <tr>
    <img src="img/logo.svg" width="128" height="128"/>
