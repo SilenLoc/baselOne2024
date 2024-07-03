@@ -1,10 +1,30 @@
 # Talk baselOne2024
+
 Repo with all the slides and showcases for the baselOne 2024 talk
 
-### Language: english
-### Duration: 45 minutes
-### The tool the talk is about: https://hurl.dev/
-### My employer: 
+<table>
+  <tr>  
+   <td> Duration </td>
+   <td> 45 minutes</td>
+  </tr>
+  <tr>
+    <td> Language </td>
+    <td> english  </td>
+  </tr>
+</table>
+
+### The tool the talk is about:
+
+<table>
+  <tr>
+   <td><img src="img/hurl.png" width="300" height="80"/></td>
+  </tr>
+  <tr>
+   <td> https://hurl.dev/ </td>
+  </tr>
+</table>
+
+### My employer:
 
 <table>
   <tr>
@@ -16,8 +36,8 @@ Repo with all the slides and showcases for the baselOne 2024 talk
   </tr>
 </table>
 
-
 ### Slides:  https://silenloc.github.io/baselOne2024/
+
 ### Tools that are handy around hurl
 
 - hurl https://github.com/Orange-OpenSource/hurl
@@ -26,14 +46,14 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 - broot https://github.com/Canop/broot
 - jwt-cli https://github.com/mike-engel/jwt-cli
 
-
-
 ## The talk
 
 ### Title
+
     I like my API tests plain and raw
 
 ### Description
+
     API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
 
 # Usage and how to
@@ -51,15 +71,14 @@ then run:
 just show
 ```
 
-Otherwise you will find the slides in raw markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
+Otherwise you will find the slides in raw
+markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
 
 To run all the showcases, install:
 
 - [just](https://github.com/casey/just?tab=readme-ov-file#installation)
 - [hurl](https://hurl.dev/docs/installation.html)
 - [docker](https://docs.docker.com/engine/install/)
-
-
 
 If you want to run the showcases natively you need to install:
 
@@ -71,7 +90,8 @@ If you want to run the showcases natively you need to install:
 - [python3] flask showcase
 - [pip] flask showcase
 - [ruff] lint flask showcase
-- [ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it) maybe for the rust showcases.
+- [ccp](https://stackoverflow.com/questions/62819285/is-there-a-single-official-c-compiler-and-how-do-i-install-it)
+  maybe for the rust showcases.
 
 then run:
 
