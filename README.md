@@ -4,7 +4,10 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 ### Language: english
 ### Duration: 45 minutes
 ### The tool the talk is about: https://hurl.dev/
-### My employer: https://www.optravis.com/  ![Optravis logo](img/logo.svg=150x150)
+### My employer: https://www.optravis.com/  
+
+<img src="img/logo.svg" width="128" height="128"/>
+
 ### Slides:  https://silenloc.github.io/baselOne2024/
 ### Tools that are handy around hurl
 
