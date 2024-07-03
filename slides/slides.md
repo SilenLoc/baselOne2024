@@ -1,22 +1,11 @@
 ---
-marp: true
-theme: default
-footer: 'Silen Locatelli, Optravis LLC ![optravis w:20px](https://raw.githubusercontent.com/SilenLoc/baselOne2024/main/img/logo.svg)'
-class: invert
-headingDivider: 3
-paginate: true
-_paginate: skip
+author: Silen Locatelli
+theme: ascii
 ---
 
-# I like my API tests raw
+#  Hurl, API testing in plain text
 
-```
- Hurl, API testing in plain text
-```
-<!--
-- zoom idea to 200 percent (settings -> appearances -> accessibility)
-- zoom in the cli "just zoom 25"
--->
+
 
 ---
 # What I search in tools
@@ -41,6 +30,7 @@ value │   x
       └────────────────────────────────────────────────────────
                    time invested to learn the tool             
 ```
+
 ---
 # Who made Hurl?
 
@@ -50,26 +40,32 @@ Orange - Open Source
 ---
 # What is Hurl?
 
-```
-Postman - Selenium - Karate
-```
+
+- Think: Postman - Selenium - Karate
+
+- But: Defined in a simple plain text format.
+
 
 ---
+
+# Testing pyramid
+
 ```
-               .
-              /=\\
-             /===\ \
+
+               .      Manual tests                         
+              /=\\ 
+             /===\ \      Scenario tests
             /=====\' \
-           /=======\'' \
+           /=======\'' \      Hurl Api tests
           /=========\ ' '\
-         /===========\''   \
+         /===========\''   \       Integration tests   
         /=============\ ' '  \
        /===============\   ''  \
       /=================\' ' ' ' \
-     /===================\' ' '  ' \
-    /=====================\' '   ' ' \
+     /===================\' ' '  ' \   
+    /=====================\' '  ' '  \  
    /=======================\  '   ' /
-  /=========================\   ' /
+  /=========================\   '  /     Unit tests
  /===========================\'  /
 /=============================\/
 
@@ -78,31 +74,33 @@ Postman - Selenium - Karate
 ---
 # The Hurl file
 
-> example.hurl
+## example.hurl
 
 ```toml
 # We can write comments and describe what we are doing in short
 # Test if example.org/api is available
-GET https://example.org/api
+GET {{target}}/api/foo
 HTTP 200
 
 # This is a second entry in the hurl file
-GET https://example.org/api
+GET {{target}}/api/foo
 HTTP 200
 [Asserts]
 # We can assert headers
-header "Content-Type" contains "utf-8"
+header "Content-Type" contains "application/json"
 # We can assert the body with jsonpath over json
-jsonpath "$.slideshow.title" == "A beautiful \u{2708}!"
+jsonpath "$.cats" count == 49
+jsonpath "$.cats[0].name" == "Felix"
+jsonpath "$.cats[0].lives" == 9
 ```
 
 ---
 # The Hurl file
 
-> example_2.hurl
+## example_2.hurl
 ```toml
 # There is more
-GET https://example.org/api
+GET {{target}}/bar
 
 [Asserts]
 # We can assert the body with filters over regex
@@ -115,6 +113,7 @@ status < 300
 
 ---
 # Showcase
+
 
 
 ---
