@@ -5,13 +5,18 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 <table>
   <tr>  
    <td> Duration </td>
-   <td> 45 minutes</td>
+   <td> Language</td>
+   <td> Title </td>
   </tr>
   <tr>
-    <td> Language </td>
-    <td> english  </td>
+    <td> 45 minutes </td>
+    <td> english </td>
+    <td> I like my API tests plain and raw </td>
   </tr>
 </table>
+
+> API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
+
 
 ### The tool the talk is about:
 
@@ -45,16 +50,6 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 - wezterm https://github.com/wez/wezterm
 - broot https://github.com/Canop/broot
 - jwt-cli https://github.com/mike-engel/jwt-cli
-
-## The talk
-
-### Title
-
-    I like my API tests plain and raw
-
-### Description
-
-    API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
 
 # Usage and how to
 
