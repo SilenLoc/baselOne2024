@@ -12,7 +12,7 @@ Repo with all the slides and showcases for the baselOne 2024 talk
    <td><img src="img/logo.svg" width="128" height="128"/></td>
   </tr>
   <tr>
-       <td> <a rel="https://www.optravis.com">Optravis</a></td> 
+       <td> https://www.optravis.com </td> 
   </tr>
 </table>
 
