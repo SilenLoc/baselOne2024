@@ -6,7 +6,16 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 ### The tool the talk is about: https://hurl.dev/
 ### My employer: https://www.optravis.com/  
 
-<img src="img/logo.svg" width="128" height="128"/>
+
+<table>
+  <tr>
+    <img src="img/opt_banner.png" width="256" height="128"/>
+  </tr>
+  <tr>
+   <img src="img/logo.svg" width="128" height="128"/>
+  </tr>
+</table>
+
 
 ### Slides:  https://silenloc.github.io/baselOne2024/
 ### Tools that are handy around hurl
