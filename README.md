@@ -1,16 +1,19 @@
-# baselOne2024
+# Talk baselOne2024
 Repo with all the slides and showcases for the baselOne 2024 talk
 
-Current state is that I got accepted, language is not sure yet
+### Language: english
+### Duration: 45 minutes
+### The tool the talk is about: https://hurl.dev/
+### My employer: https://www.optravis.com/
+### Slides:  https://silenloc.github.io/baselOne2024/
+### Tools that are handy around hurl
 
-Tools used in the talk:
-
-- talk slides https://silenloc.github.io/baselOne2024/
 - hurl https://github.com/Orange-OpenSource/hurl
 - just https://github.com/casey/just
 - wezterm https://github.com/wez/wezterm
 - broot https://github.com/Canop/broot
 - jwt-cli https://github.com/mike-engel/jwt-cli
+
 
 
 ## The talk
@@ -23,14 +26,12 @@ Tools used in the talk:
 
 # Usage and how to
 
-The slides are hosted [here](https://silenloc.github.io/baselOne2024/)
-
 Relevant commands
 
 to look at the slides, install:
 
 - [just](https://github.com/casey/just?tab=readme-ov-file#installation)
-- [marp-cli](https://github.com/marp-team/marp-cli?tab=readme-ov-file#install)
+- [slides](https://github.com/maaslalani/slides)
 
 then run:
 

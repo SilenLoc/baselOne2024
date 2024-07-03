@@ -10,19 +10,11 @@ alias verify := showcase
 
 # show slides
 show:
-    marp -s ./slides
+    slides  ./slides/slides.md
 
-[windows]
+
 install:
-    npm install -g @marp-team/marp-cli
-
-[windows]
-install-scoop:
-    scoop install marp
-
-[unix]
-install:
-    brew install marp-cli
+    brew install slides
 
 showcase:
     cd showcases/springboot && just verify
@@ -46,3 +38,6 @@ prepare: (zoom "25")
 
 zoom size:
     wezterm --config 'font_size={{size}}' &
+
+create-qr:
+    qrencode  -t UTF8 https://github.com/SilenLoc/baselOne2024
