@@ -1,6 +1,5 @@
 ---
 author: Silen Locatelli
-theme: ascii
 ---
 
 #  Hurl, API testing in plain text
@@ -48,7 +47,7 @@ Orange - Open Source
 
 ---
 
-# Testing pyramid
+# In the testing pyramid
 
 ```
 
@@ -78,7 +77,7 @@ Orange - Open Source
 
 ```toml
 # We can write comments and describe what we are doing in short
-# Test if example.org/api is available
+# Test if api/foo is available
 GET {{target}}/api/foo
 HTTP 200
 
@@ -114,18 +113,80 @@ status < 300
 ---
 # Showcase
 
+Install:
 
+```bash
+# npm
+npm install --save-dev @orangeopensource/hurl
+
+# unix
+curl / sh
+brew install hurl
+# mac
+brew install hurl
+port install hurl
+
+# windows
+scoop install hurl
+choco install hurl
+winget install hurl
+installer 
+
+# via rust
+cargo install hurl
+
+# docker 
+
+docker pull ghcr.io/orange-opensource/hurl:latest
+```
+
+- https://hurl.dev/docs/installation.html
 
 ---
-# Easy to "install"
-https://hurl.dev/docs/installation.html
+```bash
+cd showcases
+hurl --version
+```
+---
+```bash
+cat api_tests/hurl.env.test
+cat api_tests/implemented/protected.hurl
+```
+---
+# manual
 
-- brew install hurl
-- sh file
-- winget, scoop, installer for windows 
-- npm install --save-dev @orangeopensource/hurl
-- cargo  (you need libxml2 dev pkg)
-- Docker
+```bash
+docker build -t hurl-rocket:latest .
+docker-compose down
+docker-compose up -d
+hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test
+hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test
+docker-compose down
+```
+
+# just task runner
+```bash
+just --dry-run htests 
+just htests
+```
+
+# sh
+```bash
+cat htests.sh
+sh htests.sh
+```
+---
+
+# Adjustments
+
+```bash
+docker build -t hurl-rocket:latest .
+docker-compose down
+docker-compose up -d
+hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test 
+hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test --report-html .
+docker-compose down
+```
 
 
 ---

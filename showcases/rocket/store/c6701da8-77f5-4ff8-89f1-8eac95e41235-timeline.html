@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>api_tests/implemented/protected.hurl</title>
+    <style>
+        body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.4;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-container {
+    max-width: 1400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #dcdcde;
+    display: flex;
+}
+
+.calls {
+    position: sticky;
+    left: 0;
+    right: 0;
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.waterfall {
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #19191c;
+        color: #c2c2c2;
+    }
+
+    .timeline-container {
+        border-color: #444;
+    }
+}
+
+        .report-nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.report-nav-links {
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.report-nav a {
+    color: royalblue;
+    margin-right: 20px;
+}
+
+.report-nav a[aria-selected="true"] {
+    color: #ff0288;
+}
+
+.report-nav-summary > div {
+    display: flex;
+}
+
+.report-nav-summary .item-name {
+    min-width: 100px;
+    font-weight: bold;
+}
+
+.error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: red 4px solid;
+}
+
+.error-desc {
+    background: #f5f5f5;
+}
+
+.error-desc pre {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    margin: 0.75rem;
+    padding: 0.8rem;
+    overflow-x: auto;
+}
+
+.error-desc pre code {
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.success, .success a {
+    color: green;
+}
+
+.failure, .failure a {
+    color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    .report-nav a {
+        color: #34a7ff;
+    }
+
+    .report-nav a[aria-selected="true"] {
+        color: #ff0288;
+    }
+
+    .error-desc {
+        background: #27272c;
+    }
+}
+
+    </style>
+<body>
+<div>
+    <div class="container">
+        <div class="report-nav">
+    <div class="report-nav-links">
+        <div><a href="../index.html">Report</a></div>
+        <div><a aria-selected="true" href="c6701da8-77f5-4ff8-89f1-8eac95e41235-timeline.html">Timeline</a></div>
+        <div><a aria-selected="false" href="c6701da8-77f5-4ff8-89f1-8eac95e41235-run.html">Run</a></div>
+        <div><a aria-selected="false" href="c6701da8-77f5-4ff8-89f1-8eac95e41235-source.html">Source</a></div>
+    </div>
+    <div class="report-nav-summary">
+        <div><div class="item-name">File:</div><div><a href="c6701da8-77f5-4ff8-89f1-8eac95e41235-source.html">api_tests/implemented/protected.hurl</a></div></div>
+        <div><div class="item-name">Status:</div><div><span class="failure">Failure</span></div></div>
+        <div><div class="item-name">Duration:</div><div>0 ms</div></div>
+        <div><div class="item-name">Errors:</div><div>1</div></div>
+        <div></div>
+    </div>
+    <div class="errors"><div class="error"><div class="error-desc"><pre><code>HTTP connection
+  --&gt; <a href="c6701da8-77f5-4ff8-89f1-8eac95e41235-source.html#l2">api_tests/implemented/protected.hurl:2:5</a>
+   |
+ 2 | GET {{target}}/api/protected
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^ (7) Failed to connect to localhost port 8001 after 0 ms: Couldn't connect to server
+   |</code></pre></div></div></div>
+</div>
+
+    </div>
+    <div class="timeline-container">
+        <div class="calls"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" width="260" height="300"><style>@media (prefers-color-scheme: dark) {
+    .calls-list {
+        fill: #c2c2c2;
+    }
+
+    .calls-back {
+        fill: #27272c;
+    }
+
+    .calls-grid rect {
+        fill: #444;
+    }
+}</style><symbol id="success" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="#10bb00" /></symbol><symbol id="failure" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="red" /></symbol><symbol id="retry" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="gold" /></symbol><rect class="calls-back" x="0" y="0" width="100%" height="100%" fill="#fbfafd" /></svg></div>
+        <div class="waterfall"></div>
+    </div>
+</div>
+</body>
+</html>
