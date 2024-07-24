@@ -1,0 +1,29 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  _JAVA_OPTS: "-Xmx2g"
+  GRADLE_OPTS: "-Dorg.gradle.workers.max=2 -Dorg.gradle.console=plain"
+
+jobs:
+ # Prepare a release PR or release
+ release:
+  needs: verify
+  if: github.ref == 'refs/heads/main'
+  runs-on: ubuntu-latest
+  permissions:
+    contents: write
+    pull-requests: write
+  outputs:
+    released: ${{ steps.release.outputs.release_created }}
+  steps:
+    - id: release
+      uses: googleapis/release-please-action@v4
+      with:
+        token: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+        release-type: simple
