@@ -70,7 +70,7 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 - broot https://github.com/Canop/broot
 - jwt-cli https://github.com/mike-engel/jwt-cli
 
-# Showcase usage and how run the slides
+# Slides and Showcases
 
 ## Slides
 
