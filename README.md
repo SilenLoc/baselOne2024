@@ -28,6 +28,12 @@ Repo with all the slides and showcases for the baselOne 2024 talk
   </tr>
   <tr>
    <td> https://hurl.dev/ </td>
+   <td> https://www.orange.com/ </td>
+  </tr>
+  <tr>
+   <td> https://github.com/jcamiel </td>
+   <td> https://github.com/fabricereix </td>
+   <td> https://github.com/lepapareil </td>
   </tr>
 </table>
 
