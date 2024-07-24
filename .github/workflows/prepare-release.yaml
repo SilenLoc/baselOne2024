@@ -1,28 +1,24 @@
-name: build
-
 on:
   push:
-    branches: [ main ]
-  pull_request:
-  workflow_dispatch:
+    branches:
+      - main
 
-env:
-  _JAVA_OPTS: "-Xmx2g"
-  GRADLE_OPTS: "-Dorg.gradle.workers.max=2 -Dorg.gradle.console=plain"
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
 
 jobs:
- # Prepare a release PR or release
- release:
-  if: github.ref == 'refs/heads/main'
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-    pull-requests: write
-  outputs:
-    released: ${{ steps.release.outputs.release_created }}
-  steps:
-    - id: release
-      uses: googleapis/release-please-action@v4
-      with:
-        token: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
-        release-type: simple
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          # this assumes that you have created a personal access token
+          # (PAT) and configured it as a GitHub action secret named
+          # `MY_RELEASE_PLEASE_TOKEN` (this secret name is not important).
+          token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+          # this is a built-in strategy in release-please, see "Action Inputs"
+          # for more options
+          release-type: simple
