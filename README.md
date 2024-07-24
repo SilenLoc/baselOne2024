@@ -70,7 +70,9 @@ Repo with all the slides and showcases for the baselOne 2024 talk
 - broot https://github.com/Canop/broot
 - jwt-cli https://github.com/mike-engel/jwt-cli
 
-# Usage and how to
+# Showcase usage and how run the slides
+
+## Slides
 
 Relevant commands
 
@@ -88,6 +90,7 @@ just show
 Otherwise you will find the slides in raw
 markdown [here](https://github.com/SilenLoc/baselOne2024/blob/bec4321ad82dd81ecace91735888e46cdbc78c29/slides)
 
+## Showcases
 To run all the showcases, install:
 
 - [just](https://github.com/casey/just?tab=readme-ov-file#installation)
