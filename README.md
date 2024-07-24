@@ -17,8 +17,10 @@ Repo with all the slides and showcases for the baselOne 2024 talk
   </tr>
 </table>
 
-> API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead, both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is not for everyone.
-
+> API testing in plain text, with Hurl. Hurl is a CLI tool and a file format. It enables API testing with low overhead,
+> both mentally and on your machine. The talk tries to show why API tests in raw files are good and what positives Hurl
+> forces onto the projects it is used in. Even though Hurl is easy to understand, the talk acknowledges that "CLI-only" is
+> not for everyone.
 
 ### The talk is about:
 
@@ -27,18 +29,23 @@ Repo with all the slides and showcases for the baselOne 2024 talk
    <td><img src="img/hurl.png" width="300" height="80"/></td>
   </tr>
   <tr>
+   <td> Website </td>
    <td> https://hurl.dev/ </td>
   </tr>
   <tr>
+ <td> Owner </td>
    <td> https://www.orange.com/ </td>
   <tr>
  <tr>
+<td> Main Maintainer </td>
       <td> https://github.com/lepapareil </td>
   <tr>
  <tr>
+<td> Main Maintainer </td>
       <td> https://github.com/fabricereix </td>
   <tr>
  <tr>
+<td> Main Maintainer </td>
       <td> https://github.com/jcamiel </td>
   <tr>
 </table>
