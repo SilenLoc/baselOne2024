@@ -13,7 +13,6 @@ env:
 jobs:
  # Prepare a release PR or release
  release:
-  needs: verify
   if: github.ref == 'refs/heads/main'
   runs-on: ubuntu-latest
   permissions:
