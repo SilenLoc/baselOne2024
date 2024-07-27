@@ -4,7 +4,22 @@ author: Silen Locatelli
 
 #  Hurl, API testing in plain text
 
+```
+__    __   __    __  .______       __      
+|  |  |  | |  |  |  | |   _  \     |  |     
+|  |__|  | |  |  |  | |  |_)  |    |  |     
+|   __   | |  |  |  | |      /     |  |     
+|  |  |  | |  `--'  | |  |\  \----.|  `----.
+|__|  |__|  \______/  | _| `._____||_______|
 
+             _____    _____     _                  _         
+     /\     |  __ \  |_   _|   | |                | |        
+    /  \    | |__) |   | |     | |_    ___   ___  | |_   ___ 
+   / /\ \   |  ___/    | |     | __|  / _ \ / __| | __| / __|
+  / ____ \  | |       _| |_    | |_  |  __/ \__ \ | |_  \__ \
+ /_/    \_\ |_|      |_____|    \__|  \___| |___/  \__| |___/
+                            
+```
 
 ---
 # What I search in tools
@@ -33,9 +48,17 @@ value │   x
 ---
 # Who made Hurl?
 
-```
-Orange - Open Source
-```
+
+- Owned by Orange - Open Source
+- Apache License - Version 2.0
+
+Main Maintainers:
+- https://github.com/lepapareil
+- https://github.com/fabricereix
+- https://github.com/jcamiel
+
+Written in Rust, depends and lives off on libcurl
+
 ---
 # What is Hurl?
 
@@ -44,6 +67,9 @@ Orange - Open Source
 
 - But: Defined in a simple plain text format.
 
+## File format
+## CLI (environment)
+## Output
 
 ---
 
@@ -78,11 +104,11 @@ Orange - Open Source
 ```toml
 # We can write comments and describe what we are doing in short
 # Test if api/foo is available
-GET {{target}}/api/foo
+GET {{target}}/api/cats
 HTTP 200
 
 # This is a second entry in the hurl file
-GET {{target}}/api/foo
+GET {{target}}/api/cats
 HTTP 200
 [Asserts]
 # We can assert headers
@@ -100,6 +126,7 @@ jsonpath "$.cats[0].lives" == 9
 ```toml
 # There is more
 GET {{target}}/bar
+x-any-header-i-want: some value
 
 [Asserts]
 # We can assert the body with filters over regex
@@ -108,6 +135,26 @@ regex /^(\d{4}-\d{2}-\d{2})$/ == "2018-12-31"
 duration < 1000
 # We can assert statuses with predicates
 status < 300 
+```
+
+---
+# The Hurl file
+
+## example_3.hurl
+```toml
+# There is more
+GET {{target}}/api/cats
+
+[Captures]
+# We can capture a value
+cat_name: jsonpath "$.cats[0].name" == "Felix"
+
+# And reuse the value
+POST {{target}}/api/pet/{{cat_name}}
+HTTP 200
+
+[Asserts]
+body contains "Miau!"
 ```
 
 ---
@@ -122,6 +169,7 @@ npm install --save-dev @orangeopensource/hurl
 # unix
 curl / sh
 brew install hurl
+
 # mac
 brew install hurl
 port install hurl
@@ -136,7 +184,6 @@ installer
 cargo install hurl
 
 # docker 
-
 docker pull ghcr.io/orange-opensource/hurl:latest
 ```
 
