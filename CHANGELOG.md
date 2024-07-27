@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/SilenLoc/baselOne2024/compare/v0.3.0...v0.4.0) (2024-07-27)
+
+
+### Features
+
+* add cat slide ([a052ae7](https://github.com/SilenLoc/baselOne2024/commit/a052ae7f87569015e89e8c1960390b99cf154f39))
+
 ## [0.3.0](https://github.com/SilenLoc/baselOne2024/compare/0.2.0...v0.3.0) (2024-07-24)
 
 
