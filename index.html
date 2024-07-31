@@ -29,16 +29,15 @@
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" lang="en-US">
 <h1 id="what-i-search-in-tools">What I search in tools</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>      │                  xxxxxxxxxx                            
-      │          xxxxxxxxx                                     
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>                            
       │      xxxxx                                             
       │    xxx                                                 
       │    x                                                   
       │   xx                                                   
-value │   x                                                    
       │   x                                                    
       │   x                                                    
-      │  x                                                     
+      │   x                                                    
+value │  x                                                     
       │ xx                                                     
       │ x                                                      
       │xx                                                      
@@ -61,7 +60,7 @@ value │   x
 <li><a href="https://github.com/fabricereix">https://github.com/fabricereix</a></li>
 <li><a href="https://github.com/jcamiel">https://github.com/jcamiel</a></li>
 </ul>
-<p>Written in Rust, depends and lives off on libcurl</p>
+<p>Written in Rust, depends on and lives off libcurl</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" lang="en-US">
 <h1 id="what-is-hurl">What is Hurl?</h1>
@@ -125,6 +124,10 @@ jsonpath <span class="hljs-attr">&quot;$.cats[0].lives&quot;</span> == <span cla
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-toml"><span class="hljs-comment"># There is more</span>
 GET {{target}}/bar
 x-any-header-i-want: some value
+HTTP *
+
+Form
+
 
 <span class="hljs-section">[Asserts]</span>
 <span class="hljs-comment"># We can assert the body with filters over regex</span>
@@ -143,7 +146,7 @@ GET {{target}}/api/cats
 
 <span class="hljs-section">[Captures]</span>
 <span class="hljs-comment"># We can capture a value</span>
-cat_name: jsonpath <span class="hljs-attr">&quot;$.cats[0].name&quot;</span> == <span class="hljs-string">&quot;Felix&quot;</span>
+cat_name: jsonpath &quot;$.cats<span class="hljs-section">[0]</span>.name&quot;
 
 <span class="hljs-comment"># And reuse the value</span>
 POST {{target}}/api/pet/{{cat_name}}
@@ -158,24 +161,19 @@ body contains &quot;Miau!&quot;
 <p>Install:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># npm</span>
 npm install --save-dev @orangeopensource/hurl
-
 <span class="hljs-comment"># unix</span>
 curl / sh
 brew install hurl
-
 <span class="hljs-comment"># mac</span>
 brew install hurl
 port install hurl
-
 <span class="hljs-comment"># windows</span>
 scoop install hurl
 choco install hurl
 winget install hurl
 installer 
-
 <span class="hljs-comment"># via rust</span>
 cargo install hurl
-
 <span class="hljs-comment"># docker </span>
 docker pull ghcr.io/orange-opensource/hurl:latest
 </code></pre>
@@ -184,7 +182,7 @@ docker pull ghcr.io/orange-opensource/hurl:latest
 </ul>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" lang="en-US">
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-built_in">cd</span> showcases
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-built_in">cd</span> showcases/rocket
 hurl --version
 </code></pre>
 </section>
