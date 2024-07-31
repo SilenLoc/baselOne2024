@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/SilenLoc/baselOne2024/compare/v0.4.0...v0.5.0) (2024-07-31)
+
+
+### Features
+
+* adjustments to slides from yester day ([24f5a07](https://github.com/SilenLoc/baselOne2024/commit/24f5a0754003dedb160f2275f41e76707253e71e))
+
 ## [0.4.0](https://github.com/SilenLoc/baselOne2024/compare/v0.3.0...v0.4.0) (2024-07-27)
 
 
