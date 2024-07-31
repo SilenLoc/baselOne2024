@@ -25,16 +25,15 @@ __    __   __    __  .______       __
 # What I search in tools
 
 ```       
-      │                  xxxxxxxxxx                            
-      │          xxxxxxxxx                                     
+                            
       │      xxxxx                                             
       │    xxx                                                 
       │    x                                                   
       │   xx                                                   
-value │   x                                                    
       │   x                                                    
       │   x                                                    
-      │  x                                                     
+      │   x                                                    
+value │  x                                                     
       │ xx                                                     
       │ x                                                      
       │xx                                                      
@@ -57,7 +56,7 @@ Main Maintainers:
 - https://github.com/fabricereix
 - https://github.com/jcamiel
 
-Written in Rust, depends and lives off on libcurl
+Written in Rust, depends on and lives off libcurl
 
 ---
 # What is Hurl?
@@ -127,6 +126,10 @@ jsonpath "$.cats[0].lives" == 9
 # There is more
 GET {{target}}/bar
 x-any-header-i-want: some value
+HTTP *
+
+Form
+
 
 [Asserts]
 # We can assert the body with filters over regex
@@ -147,7 +150,7 @@ GET {{target}}/api/cats
 
 [Captures]
 # We can capture a value
-cat_name: jsonpath "$.cats[0].name" == "Felix"
+cat_name: jsonpath "$.cats[0].name"
 
 # And reuse the value
 POST {{target}}/api/pet/{{cat_name}}
@@ -165,24 +168,19 @@ Install:
 ```bash
 # npm
 npm install --save-dev @orangeopensource/hurl
-
 # unix
 curl / sh
 brew install hurl
-
 # mac
 brew install hurl
 port install hurl
-
 # windows
 scoop install hurl
 choco install hurl
 winget install hurl
 installer 
-
 # via rust
 cargo install hurl
-
 # docker 
 docker pull ghcr.io/orange-opensource/hurl:latest
 ```
@@ -191,7 +189,7 @@ docker pull ghcr.io/orange-opensource/hurl:latest
 
 ---
 ```bash
-cd showcases
+cd showcases/rocket
 hurl --version
 ```
 ---
