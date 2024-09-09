@@ -94,6 +94,7 @@ async fn fetch_jwk_set() -> anyhow::Result<HashMap<String, Decoder>> {
 
 #[derive(Debug, Deserialize)]
 pub struct AccessToken {
+    #[allow(unused)]
     pub email: Option<String>,
     #[serde(rename = "sub")]
     _user_id: Uuid,
