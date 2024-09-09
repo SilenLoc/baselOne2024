@@ -29,7 +29,7 @@ test:
 
 # run api tests
 build-and-run-api-test: (up "-d") api-test
-    docker-compose down
+    docker compose down
 
 
 wait-for-api:
