@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "3.3.2"
+	id("org.springframework.boot") version "3.3.3"
 	id("io.spring.dependency-management") version "1.1.6"
-	kotlin("jvm") version "2.0.0"
-	kotlin("plugin.spring") version "2.0.0"
-	id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0"
+	kotlin("jvm") version "2.0.20"
+	kotlin("plugin.spring") version "2.0.20"
+	id("org.jetbrains.kotlin.plugin.serialization") version "2.0.20"
 }
 
 group = "com.example"
@@ -32,7 +32,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("com.auth0:java-jwt:4.4.0")
-	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.2")
 
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	runtimeOnly("org.postgresql:postgresql")
