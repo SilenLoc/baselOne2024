@@ -15,7 +15,7 @@ run:
 	cargo run
 
 htests: build (up "-d") api-test
-    docker-compose down
+    docker compose down
 
 up c="": build
     docker compose down
