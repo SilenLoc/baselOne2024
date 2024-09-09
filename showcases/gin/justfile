@@ -8,14 +8,14 @@ test:
     go test .
 
 verify: test (up "-d") api-test lint
-    docker-compose down
+    docker compose down
 
 install-dep:
     go get -u github.com/gin-gonic/gin
 
 up c="": build
-    docker-compose down
-    docker-compose up {{c}}
+    docker compose down
+    docker compose up {{c}}
 
 # Watch the source files and run `just verify` when source changes
 watch:

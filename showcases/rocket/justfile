@@ -8,7 +8,7 @@ hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 
 # Perform all verifications (compile, test, lint, etc.)
 verify: test htests lint
-    docker-compose down
+    docker compose down
 
 # Run the service locally (from sources)
 run:
@@ -18,8 +18,8 @@ htests: build (up "-d") api-test
     docker-compose down
 
 up c="": build
-    docker-compose down
-    docker-compose up {{c}}
+    docker compose down
+    docker compose up {{c}}
 
 # Watch the source files and run `just verify` when source changes
 watch:

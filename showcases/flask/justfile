@@ -18,15 +18,15 @@ test:
     true
 
 verify: test (up "-d") api-test lint
-    docker-compose down
+    docker compose down
 
 install-dep:
     sudo dnf install gcc
     sudo dnf install libulfius-dev
 
 up c="": build
-    docker-compose down
-    docker-compose up {{c}}
+    docker compose down
+    docker compose up {{c}}
 
 # Watch the source files and run `just verify` when source changes
 watch:

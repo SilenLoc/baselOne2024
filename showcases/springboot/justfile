@@ -12,8 +12,8 @@ build:
     ./gradlew bootImage --imageName=hurlspring:latest
 
 up c="": build
-    docker-compose down
-    docker-compose up {{c}}
+    docker compose down
+    docker compose up {{c}}
 
 verify: test build-and-run-api-test
 
@@ -29,7 +29,7 @@ test:
 
 # run api tests
 build-and-run-api-test: (up "-d") api-test
-    docker-compose down
+    docker compose down
 
 
 wait-for-api:
