@@ -7,14 +7,14 @@ hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 	just --list --unsorted
 
 # Perform all verifications (compile, test, lint, etc.)
-verify: test htests lint
+verify: test api_tests lint
     docker compose down
 
 # Run the service locally (from sources)
 run:
 	cargo run
 
-htests: build (up "-d") api-test
+api_tests: build (up "-d") api-test
     docker compose down
 
 up c="": build

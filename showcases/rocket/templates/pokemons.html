@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemons</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #ff6347;
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #4682b4;
+        }
+
+        p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        ul ul {
+            margin-left: 20px;
+        }
+
+        .pokemon-types, .pokemon-evolutions {
+            font-size: 0.9em;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .pokemon-types li {
+            display: inline-block;
+            margin-right: 10px;
+            background-color: #ffeb3b;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        .pokemon-evolutions {
+            background-color: #f0fff0;
+        }
+
+        .evolution-header {
+            color: #ff69b4;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Pokemons</h1>
+    
+    <ul>
+        {% for pokemon in pokemons %}
+        <li>
+            <h2>ID: {{pokemon.id}}</h2>
+            <p><strong>Name:</strong> {pokemon.name}</p>
+
+            <div class="pokemon-types">
+                <p><strong>Types:</strong></p>
+                <ul>
+                    {% for poke_type in pokemon.types }
+                        <li>{ match poke_type {
+                            PokeType::Plant() => "Plant",
+                            PokeType::Poison() => "Poison"
+                        }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
