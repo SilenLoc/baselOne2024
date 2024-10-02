@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.1](https://github.com/SilenLoc/baselOne2024/compare/v0.5.0...v0.5.1) (2024-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([1ede101](https://github.com/SilenLoc/baselOne2024/commit/1ede101497bb00c1cffa179a68dbf6d1cd321c03))
+* **deps:** update all non-major dependencies ([56cd17c](https://github.com/SilenLoc/baselOne2024/commit/56cd17c7ed1cf88c919005b08ad974ec3827deb6))
+* **deps:** update all non-major dependencies ([#64](https://github.com/SilenLoc/baselOne2024/issues/64)) ([c5c2e79](https://github.com/SilenLoc/baselOne2024/commit/c5c2e7997c45da92ceafeb263f50a433378c6e10))
+* **deps:** update all non-major dependencies ([#67](https://github.com/SilenLoc/baselOne2024/issues/67)) ([ed109ef](https://github.com/SilenLoc/baselOne2024/commit/ed109ef676aa73287a604dcd4e7a4e00c3117d56))
+* docker compose update.. ([e8805aa](https://github.com/SilenLoc/baselOne2024/commit/e8805aa690da818bb53f605c269784826f5f39e6))
+* rocket usecase after update ([dde7c15](https://github.com/SilenLoc/baselOne2024/commit/dde7c154afaed4094b08e3810143efb2fbb42828))
+
 ## [0.5.0](https://github.com/SilenLoc/baselOne2024/compare/v0.4.0...v0.5.0) (2024-07-31)
 
 
