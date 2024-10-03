@@ -4,8 +4,8 @@
 extern crate rocket;
 
 mod auth;
-mod pokedex;
 mod poke_endpoints;
+mod pokedex;
 
 #[get("/healthz")]
 fn healthz() {}
@@ -16,10 +16,14 @@ fn protected(_access_token: auth::AccessToken) {}
 #[launch]
 fn rocket() -> _ {
     let pokedex = pokedex::Pokedex::new();
+    pokedex.fake_data();
 
     rocket::build()
         .attach(auth::fairing())
         .manage(pokedex)
-        .mount("/api", routes![healthz, protected, poke_endpoints::get_all_pokemons])
-
+        .mount(
+            "/api",
+            routes![healthz, protected, poke_endpoints::add_pokemons],
+        )
+        .mount("/", routes![poke_endpoints::get_all_pokemons])
 }

@@ -3,6 +3,11 @@ set dotenv-load
 image_name := "hurl-rocket:latest"
 hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 
+
+export ROCKET_PORT := "8002"
+export AUTH_HS256_SECRET := "CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp"
+export AUTH_JWT_AUD := "local.my_domain.com"
+
 @_list:
 	just --list --unsorted
 

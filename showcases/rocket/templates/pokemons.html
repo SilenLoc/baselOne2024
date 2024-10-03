@@ -1,112 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemons</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #ff6347;
-            margin-bottom: 40px;
-        }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .pokemon {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
 
-        li {
-            background-color: #fff;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
+    .pokemon:last-child {
+      border-bottom: none;
+    }
 
-        h2 {
-            font-size: 1.5em;
-            color: #4682b4;
-        }
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
 
-        p {
-            font-size: 1em;
-            margin: 5px 0;
-        }
+    p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
 
-        ul ul {
-            margin-left: 20px;
-        }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 5px 0 10px 0;
+    }
 
-        .pokemon-types, .pokemon-evolutions {
-            font-size: 0.9em;
-            padding: 10px;
-            background-color: #e0f7fa;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
+    li {
+      background-color: #eee;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
 
-        .pokemon-types li {
-            display: inline-block;
-            margin-right: 10px;
-            background-color: #ffeb3b;
-            padding: 5px 10px;
-            border-radius: 50px;
-            font-weight: bold;
-        }
+    .types, .evolution-item {
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
-        .pokemon-evolutions {
-            background-color: #f0fff0;
-        }
+    .Poison-type-item {
+      background-color: #00ff15;
+      color: #cceeff;
+    }
 
-        .evolution-header {
-            color: #ff69b4;
-            margin-top: 15px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.8em;
-            color: #888;
-        }
-    </style>
+    .Plant-type-item {
+      background-color: #2c763f;
+      color: #cceeff;
+    }
+
+    .evolution-item {
+      background-color: #ffd7b3;
+      color: #cc5200;
+    }
+  </style>
 </head>
 <body>
-    <h1>List of Pokemons</h1>
-    
-    <ul>
-        {% for pokemon in pokemons %}
-        <li>
-            <h2>ID: {{pokemon.id}}</h2>
-            <p><strong>Name:</strong> {pokemon.name}</p>
+<div class="container">
+  <h2>Pokémons:</h2>
 
-            <div class="pokemon-types">
-                <p><strong>Types:</strong></p>
-                <ul>
-                    {% for poke_type in pokemon.types }
-                        <li>{ match poke_type {
-                            PokeType::Plant() => "Plant",
-                            PokeType::Poison() => "Poison"
-                        }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </li>
-        {% endfor %}
+  {% for pokemon in pokemons %}
+  <div class="pokemon">
+    <p><strong>Id:</strong> {{ pokemon.id }}</p>
+    <p><strong>Name:</strong> {{ pokemon.name }}</p>
+
+    <p class="types">Type:</p>
+    <ul>
+      {% for type in pokemon.types %}
+      <li class="{{ type }}-type-item">{{ type }}</li>
+      {% endfor %}
     </ul>
 
-    <footer>
-        
-    </footer>
+    <p class="evolution-item">Evolutions:</p>
+    <ul>
+      {{ pokemon.evolutions }}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
 </body>
 </html>
