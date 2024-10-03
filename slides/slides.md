@@ -166,21 +166,35 @@ body contains "Miau!"
 Install:
 
 ```bash
+
 # npm
 npm install --save-dev @orangeopensource/hurl
+
 # unix
 curl / sh
 brew install hurl
+
 # mac
 brew install hurl
 port install hurl
+```
+---
+
+# Showcase
+
+
+Install:
+```bash
+
 # windows
 scoop install hurl
 choco install hurl
 winget install hurl
 installer 
+
 # via rust
 cargo install hurl
+
 # docker 
 docker pull ghcr.io/orange-opensource/hurl:latest
 ```
@@ -202,23 +216,26 @@ cat api_tests/implemented/protected.hurl
 
 ```bash
 docker build -t hurl-rocket:latest .
+
 docker-compose down
 docker-compose up -d
+
 hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test
 hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test
+
 docker-compose down
 ```
 
 # just task runner
 ```bash
-just --dry-run htests 
-just htests
+just --dry-run api_tests 
+just api_tests
 ```
 
 # sh
 ```bash
-cat htests.sh
-sh htests.sh
+cat api_tests.sh
+sh api_tests.sh
 ```
 ---
 

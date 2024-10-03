@@ -3,18 +3,23 @@ set dotenv-load
 image_name := "hurl-rocket:latest"
 hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 
+
+export ROCKET_PORT := "8002"
+export AUTH_HS256_SECRET := "CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp"
+export AUTH_JWT_AUD := "local.my_domain.com"
+
 @_list:
 	just --list --unsorted
 
 # Perform all verifications (compile, test, lint, etc.)
-verify: test htests lint
+verify: test api_tests lint
     docker compose down
 
 # Run the service locally (from sources)
 run:
 	cargo run
 
-htests: build (up "-d") api-test
+api_tests: build (up "-d") api-test
     docker compose down
 
 up c="": build
