@@ -197,21 +197,21 @@ hurl --version
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" lang="POSIX">
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-built_in">cat</span> api_tests/hurl.env.test
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-built_in">cat</span> api_tests/variables
+<span class="hljs-built_in">cat</span> api_tests/implemented/healthz.hurl
 <span class="hljs-built_in">cat</span> api_tests/implemented/protected.hurl
+<span class="hljs-built_in">cat</span> api_tests/implemented/create_pokemons.hurl
+<span class="hljs-built_in">cat</span> api_tests/implemented/pokemon_html.hurl
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" lang="POSIX">
 <h1 id="manual">manual</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">docker build -t hurl-rocket:latest .
-
-docker-compose down
-docker-compose up -d
-
-hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --<span class="hljs-built_in">test</span>
-hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --<span class="hljs-built_in">test</span>
-
-docker-compose down
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">lsof -t -i:8090 | xargs -r <span class="hljs-built_in">kill</span>
+cargo run &amp; 2&gt;&amp;1
+hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --<span class="hljs-built_in">test</span>
+hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --<span class="hljs-built_in">test</span>	
+lsof -t -i:8090 | xargs -r <span class="hljs-built_in">kill</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Verify done&quot;</span>
 </code></pre>
 <h1 id="just-task-runner">just task runner</h1>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">just --dry-run api_tests 
@@ -224,23 +224,56 @@ sh api_tests.sh
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" lang="POSIX">
 <h1 id="adjustments">Adjustments</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">docker build -t hurl-rocket:latest .
-docker-compose down
-docker-compose up -d
-hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --<span class="hljs-built_in">test</span> 
-hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --<span class="hljs-built_in">test</span> --report-html .
-docker-compose down
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">lsof -t -i:8090 | xargs -r <span class="hljs-built_in">kill</span>
+cargo run &amp; 2&gt;&amp;1
+hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --<span class="hljs-built_in">test</span>
+hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --<span class="hljs-built_in">test</span>	--report-html .
+lsof -t -i:8090 | xargs -r <span class="hljs-built_in">kill</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Verify done&quot;</span>
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" lang="POSIX">
+<h1 id="imo">IMO</h1>
+<ul>
+<li>on the API
+<ul>
+<li>meaningful siblings (post/get)</li>
+<li>a good feeling about the actual complexity</li>
+<li>precise and close to production tests</li>
+<li>a good understanding of what state means in your application</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" lang="POSIX">
+<h1 id="imo-1">IMO</h1>
+<ul>
+<li>on your local environment
+<ul>
+<li>a tested run command</li>
+<li>tested environment variables</li>
+<li>a tested docker-compose file</li>
+</ul>
+</li>
+</ul>
+<p>And very important: A good night sleep</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" lang="POSIX">
+<h1 id="when-to-stop">When to stop</h1>
+<p>-- There is no &quot;best setup&quot;</p>
+<p>-- Hurl is as slow as your application</p>
+<p>-- Hurl will reflect the complexity of your API, all of it.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" lang="POSIX">
 <h1 id="hurl-is-the-right-choice">Hurl is the right choice</h1>
 <ul>
 <li>if you prefer CLI</li>
 <li>if you prefer plain text</li>
 <li>if you like to test with curl</li>
+<li>if you like small overhead</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" lang="POSIX">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" lang="POSIX">
 <h1 id="hurl-is-the-wrong-choice">Hurl is the wrong choice</h1>
 <ul>
 <li>if you prefer GUIs</li>
@@ -248,19 +281,33 @@ docker-compose down
 <li>if you do not care about it</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" lang="POSIX">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" lang="POSIX">
+<h1 id="things-left-to-say">Things left to say</h1>
+<blockquote>
+<p>The Hurl project is maintainer and usage oriented</p>
+</blockquote>
+<blockquote>
+<p>Hurl is not the whole story</p>
+</blockquote>
+<blockquote>
+<p>-&gt; Variable injection is the way to get data into Hurl<br />
+-&gt; if you think you need something else<br />
+-&gt; use http</p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" lang="POSIX">
 <h1 id="the-talk-and-more-links-at-github">The talk and more links at github</h1>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>█████████████████████████████████████
 █████████████████████████████████████
 ████ ▄▄▄▄▄ █▀█ █▄█▄ ▀█▄▄▄█ ▄▄▄▄▄ ████
 ████ █   █ █▀▀▀█ ██ ▄▀█▀▄█ █   █ ████
 ████ █▄▄▄█ █▀ █▀▀█▄▀▄ ▄▄ █ █▄▄▄█ ████    Points to https://github.com/SilenLoc/baselOne2024
-████▄▄▄▄▄▄▄█▄▀ ▀▄▀▄█ █ █▄█▄▄▄▄▄▄▄████
+████▄▄▄▄▄▄▄█▄▀ ▀▄▀▄█ █ █▄█▄▄▄▄▄▄▄████    
 ████  ▄ ▄▀▄▄ ▄▀▄▀▀▄█▀▀▀ ▀▄▀ ▀▄█▄▀████
 ████▄ ███▀▄▄▀█▄█▀▄█▄ █▀▀▄███▄▀█▀█████
 ████ █▄▀█▀▄▄▄ ▄█▄█▄▀▀ ▀█ ▀▀▀▀▄▄█▀████
 ████ ▀▀█▄█▄██▄▀ ▄██ ▀▄█▀  ▀▀ ▄▄▀█████    
-████▀▄ ▀██▄ █  ▄▀▀██▀▄▀ █ ▀ ▀▄ █▀████
+████▀▄ ▀██▄ █  ▄▀▀██▀▄▀ █ ▀ ▀▄ █▀████    
 ████ █ █  ▄  ▀██▀ ▄  ▄▄█ ▀ ▄▄█▄▀█████
 ████▄██▄█▄▄▄▀▀▄█▄█▄▄▀  ▄ ▄▄▄ ▀   ████
 ████ ▄▄▄▄▄ █▄█  ▄█▀▄▄▄█  █▄█ ▄▄▀█████
