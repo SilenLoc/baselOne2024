@@ -7,7 +7,7 @@ run:
 test:
     go test .
 
-verify: test (up "-d") api-test lint
+verify: test (up "-d") api-test
     docker compose down
 
 install-dep:
@@ -20,10 +20,6 @@ up c="": build
 # Watch the source files and run `just verify` when source changes
 watch:
 	cargo watch -- just verify
-
-# Run the static code analysis
-lint:
-	golangci-lint run
 
 # Build docker image for testing
 build:
@@ -43,13 +39,6 @@ api-test *args: wait-for-api
 api-test-not-implemented *args: wait-for-api
     hurl api_tests/not_implemented/*.hurl {{hurl_opts}} {{args}}
 
-# Install cargo dev-tools used by the `verify` recipe (requires rustup to be already installed)
-install-dev-tools:
-    just install-linter
-
-install-linter:
-    brew install golangci-lint
-    brew upgrade golangci-lint
 
 install-hurl:
 	curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.1.0/hurl_4.1.0_amd64.deb

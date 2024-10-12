@@ -1,5 +1,7 @@
 use core::fmt;
 
+use rand::{distributions::Alphanumeric, seq::IteratorRandom, Rng};
+
 #[allow(unused)]
 #[derive(Clone, Debug)]
 pub enum PokeType {
@@ -56,16 +58,27 @@ fn unbox<T>(value: Box<T>) -> T {
 }
 
 impl Pokemon {
-    pub fn new(
-        id: String,
-        name: String,
-        types: Vec<PokeType>,
-        evolutions: Box<Option<Pokemon>>,
-    ) -> Self {
+    pub fn random() -> Self {
+        let mut rng = rand::thread_rng();
+        let id = random_string();
+        let name = random_string();
+        let types = vec![PokeType::Plant, PokeType::Poison]
+            .into_iter()
+            .choose(&mut rng)
+            .unwrap();
+        let poke_type = types();
+        let evo = if rand::random() {
+            Some(Pokemon::random())
+        } else {
+            None
+        };
+
+        let evolutions = Box::new(evo);
+
         Self {
             id,
             name,
-            types,
+            types: vec![poke_type],
             evolutions,
         }
     }
@@ -73,4 +86,12 @@ impl Pokemon {
     pub fn id(&self) -> String {
         self.id.clone()
     }
+}
+
+fn random_string() -> String {
+    rand::thread_rng()
+        .sample_iter(&Alphanumeric)
+        .take(7)
+        .map(char::from)
+        .collect()
 }

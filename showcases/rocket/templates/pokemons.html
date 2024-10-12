@@ -1,104 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html data-theme="dark">
+    <head>
+<link rel="stylesheet" href="_assets/pico.min.css"> 
+<link rel="stylesheet" href="_assets/app.css">
+<script src="/_assets/htmx.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokédex</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
 
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    .pokemon {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .pokemon:last-child {
-      border-bottom: none;
-    }
-
-    h2 {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin: 5px 0;
-      font-size: 16px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 5px 0 10px 0;
-    }
-
-    li {
-      background-color: #eee;
-      padding: 5px 10px;
-      margin-bottom: 5px;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .types, .evolution-item {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .Poison-type-item {
-      background-color: #00ff15;
-      color: #cceeff;
-    }
-
-    .Plant-type-item {
-      background-color: #2c763f;
-      color: #cceeff;
-    }
-
-    .evolution-item {
-      background-color: #ffd7b3;
-      color: #cc5200;
-    }
-  </style>
 </head>
-<body>
-<div class="container">
-  <h2>Pokémons:</h2>
+<body class="container">
+    <h2 class="title">Pokémons:</h2> 
+    <div class="container">
+        
+            <button
+                hx-post="/api/pokemons"
+                hx-target="#nothing"
+            >
+               Add Pokémon
+            </button>
+        
+ 
 
-  {% for pokemon in pokemons %}
-  <div class="pokemon">
-    <p><strong>Id:</strong> {{ pokemon.id }}</p>
-    <p><strong>Name:</strong> {{ pokemon.name }}</p>
-
-    <p class="types">Type:</p>
-    <ul>
-      {% for type in pokemon.types %}
-      <li class="{{ type }}-type-item">{{ type }}</li>
-      {% endfor %}
-    </ul>
-
-    <p class="evolution-item">Evolutions:</p>
-    <ul>
-      {{ pokemon.evolutions }}
-    </ul>
-  </div>
-  {% endfor %}
+        <div class="overflow-auto fixed-container">
+            {% for pokemon in pokemons %}
+            <article
+              id="{{ pokemon.id }}"
+            >
+                <header>
+                    <p><strong>Name:</strong> {{ pokemon.name }}</p>
+                    <p>Id: {{ pokemon.id }}</p>
+                </header>
+             
+                <body>
+                    <p class="types">Type:</p>
+                    <ul>
+                      {% for type in pokemon.types %}
+                      <li class="{{ type }}-type-item">{{ type }}</li>
+                      {% endfor %}
+                    </ul>
+                
+                    <p class="evolution-item">Evolutions:</p>
+                    <ul>
+                      {{ pokemon.evolutions }}
+                    </ul>
+                </body>
+                
+                <div id="nothing">
+                </div>
+             
+            </article>
+           
+            {% endfor %}
+        </div>
+ 
 </div>
 </body>
 </html>

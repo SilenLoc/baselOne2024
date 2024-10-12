@@ -1,5 +1,5 @@
 use crate::pokedex::{
-    pokemon::{DPokemon, PokeType, Pokemon},
+    pokemon::{DPokemon, Pokemon},
     Pokedex,
 };
 use askama::Template;
@@ -21,11 +21,6 @@ pub fn get_all_pokemons(dex: &State<Pokedex>) -> (ContentType, String) {
 
 #[post("/pokemons")]
 pub fn add_pokemons(dex: &State<Pokedex>) {
-    let special2 = Pokemon::new(
-        "9999991".to_string(),
-        "Special other Pokemon".to_string(),
-        vec![PokeType::Poison()],
-        Box::new(Some(dex.inner().get_all().first().unwrap().clone())),
-    );
-    dex.inner().add(special2);
+    let special = Pokemon::random();
+    dex.inner().add(special);
 }
