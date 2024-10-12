@@ -179,7 +179,6 @@ brew install hurl
 port install hurl
 ```
 ---
-
 # Showcase
 
 
@@ -208,48 +207,72 @@ hurl --version
 ```
 ---
 ```bash
-cat api_tests/hurl.env.test
+cat api_tests/variables
+cat api_tests/implemented/healthz.hurl
 cat api_tests/implemented/protected.hurl
+cat api_tests/implemented/create_pokemons.hurl
+cat api_tests/implemented/pokemon_html.hurl
 ```
 ---
 # manual
 
 ```bash
-docker build -t hurl-rocket:latest .
-
-docker-compose down
-docker-compose up -d
-
-hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test
-hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test
-
-docker-compose down
+lsof -t -i:8090 | xargs -r kill
+cargo run & 2>&1
+hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --test
+hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --test	
+lsof -t -i:8090 | xargs -r kill
+echo "Verify done"
 ```
-
 # just task runner
 ```bash
 just --dry-run api_tests 
 just api_tests
 ```
-
 # sh
 ```bash
 cat api_tests.sh
 sh api_tests.sh
 ```
 ---
-
 # Adjustments
 
 ```bash
-docker build -t hurl-rocket:latest .
-docker-compose down
-docker-compose up -d
-hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test 
-hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test --report-html .
-docker-compose down
+lsof -t -i:8090 | xargs -r kill
+cargo run & 2>&1
+hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --test
+hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --test	--report-html .
+lsof -t -i:8090 | xargs -r kill
+echo "Verify done"
 ```
+---
+# IMO
 
+- on the API
+  - meaningful siblings (post/get)
+  - a good feeling about the actual complexity
+  - precise and close to production tests
+  - a good understanding of what state means in your application
+
+
+---
+# IMO
+- on your local environment
+  - a tested run command
+  - tested environment variables
+  - a tested docker-compose file
+
+And very important: A good night sleep
+
+---
+
+# When to stop
+
+-- There is no "best setup"
+
+-- Hurl is as slow as your application
+
+-- Hurl will reflect the complexity of your API, all of it. 
 
 ---
 # Hurl is the right choice
@@ -257,6 +280,7 @@ docker-compose down
 - if you prefer CLI
 - if you prefer plain text
 - if you like to test with curl
+- if you like small overhead
 
 ---
 # Hurl is the wrong choice
@@ -266,8 +290,18 @@ docker-compose down
 - if you do not care about it
 
 ---
-# The talk and more links at github
+# Things left to say
 
+> The Hurl project is maintainer and usage oriented
+
+> Hurl is not the whole story
+
+> -> Variable injection is the way to get data into Hurl 
+> -> if you think you need something else   
+> -> use http
+
+---
+# The talk and more links at github
 
 ```
 █████████████████████████████████████
@@ -275,12 +309,12 @@ docker-compose down
 ████ ▄▄▄▄▄ █▀█ █▄█▄ ▀█▄▄▄█ ▄▄▄▄▄ ████
 ████ █   █ █▀▀▀█ ██ ▄▀█▀▄█ █   █ ████
 ████ █▄▄▄█ █▀ █▀▀█▄▀▄ ▄▄ █ █▄▄▄█ ████    Points to https://github.com/SilenLoc/baselOne2024
-████▄▄▄▄▄▄▄█▄▀ ▀▄▀▄█ █ █▄█▄▄▄▄▄▄▄████
+████▄▄▄▄▄▄▄█▄▀ ▀▄▀▄█ █ █▄█▄▄▄▄▄▄▄████    
 ████  ▄ ▄▀▄▄ ▄▀▄▀▀▄█▀▀▀ ▀▄▀ ▀▄█▄▀████
 ████▄ ███▀▄▄▀█▄█▀▄█▄ █▀▀▄███▄▀█▀█████
 ████ █▄▀█▀▄▄▄ ▄█▄█▄▀▀ ▀█ ▀▀▀▀▄▄█▀████
 ████ ▀▀█▄█▄██▄▀ ▄██ ▀▄█▀  ▀▀ ▄▄▀█████    
-████▀▄ ▀██▄ █  ▄▀▀██▀▄▀ █ ▀ ▀▄ █▀████
+████▀▄ ▀██▄ █  ▄▀▀██▀▄▀ █ ▀ ▀▄ █▀████    
 ████ █ █  ▄  ▀██▀ ▄  ▄▄█ ▀ ▄▄█▄▀█████
 ████▄██▄█▄▄▄▀▀▄█▄█▄▄▀  ▄ ▄▄▄ ▀   ████
 ████ ▄▄▄▄▄ █▄█  ▄█▀▄▄▄█  █▄█ ▄▄▀█████
