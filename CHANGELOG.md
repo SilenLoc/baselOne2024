@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.0](https://github.com/SilenLoc/baselOne2024/compare/v0.5.1...v0.6.0) (2024-10-12)
+
+
+### Features
+
+* bigger showcase ([e58217f](https://github.com/SilenLoc/baselOne2024/commit/e58217f903a5c8206dd8c1b0e405641c51c7bb82))
+* new slides ([7bed71c](https://github.com/SilenLoc/baselOne2024/commit/7bed71c9cca96edacb7b4ff3241a8aaf88af5aa1))
+* pokedex and slides ([#76](https://github.com/SilenLoc/baselOne2024/issues/76)) ([5f8e89b](https://github.com/SilenLoc/baselOne2024/commit/5f8e89b1a725c6892e0377f0f29e27a52b045296))
+* pokedex showcase ([16bd4cb](https://github.com/SilenLoc/baselOne2024/commit/16bd4cb1d8af5dba7dbad6b5f82590287e063a4b))
+* pokedex showcase ([#70](https://github.com/SilenLoc/baselOne2024/issues/70)) ([499a987](https://github.com/SilenLoc/baselOne2024/commit/499a987dc1690552d0be8fc677d97f86727dfd7a))
+
+
+### Bug Fixes
+
+* main ([79553ff](https://github.com/SilenLoc/baselOne2024/commit/79553ff211e7f2cc2a6e2d9b0e18e355cf5de314))
+
 ## [0.5.1](https://github.com/SilenLoc/baselOne2024/compare/v0.5.0...v0.5.1) (2024-10-02)
 
 
