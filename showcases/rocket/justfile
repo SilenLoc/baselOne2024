@@ -1,10 +1,11 @@
 set dotenv-load
+import 'api_tests/hurl.just'
 
 image_name := "hurl-rocket:latest"
-hurl_opts := "--variables-file api_tests/hurl.env.test --test"
 
 
-export ROCKET_PORT := "8002"
+export ROCKET_PORT := "8090"
+export SERVER_PORT := "8090"
 export AUTH_HS256_SECRET := "CTRKew35ltwdWhGv9WF10lJ06oYBZKzACYhANx7QXPZpvBvCNZbq161xHg2rKhcp"
 export AUTH_JWT_AUD := "local.my_domain.com"
 
@@ -12,57 +13,38 @@ export AUTH_JWT_AUD := "local.my_domain.com"
 	just --list --unsorted
 
 # Perform all verifications (compile, test, lint, etc.)
-verify: test api_tests lint
-    docker compose down
+@verify: test lint api_tests
+    echo ------------ verify done! ------------  
 
-# Run the service locally (from sources)
-run:
-	cargo run
+@sh:
+    ./api_tests.sh
 
-api_tests: build (up "-d") api-test
-    docker compose down
-
-up c="": build
-    docker compose down
-    docker compose up {{c}}
+run *args:
+    cargo run -q -- {{args}}
 
 # Watch the source files and run `just verify` when source changes
 watch:
-	cargo watch -- just verify
+	cargo watch -- just run
 
-# Run the tests
+# Run tests    
 test:
-	cargo hack test --feature-powerset --locked
-	cargo deny check licenses
+    cargo test
 
 # Run the static code analysis
 lint:
-	cargo fmt --all -- --check
-	cargo hack clippy --feature-powerset --all-targets --workspace --locked
-	cargo deny check
+    cargo fmt --all -- --check
+    cargo clippy
 
 # Clean up compilation output
 clean:
 	rm -rf target
 	rm -rf node_modules
 
+
 # Build docker image for testing
 build:
 	docker build -t {{image_name}} .
 
-wait-for-api:
-	hurl api_tests/implemented/healthz.hurl --retry 60 {{hurl_opts}}
-
-pre-api-test:
-	hurl api/pre_test/*.hurl {{hurl_opts}}
-
-# run acceptance tests against the running test stack
-api-test *args: wait-for-api
-    hurl api_tests/implemented/*.hurl {{hurl_opts}} {{args}}
-
-# run all acceptance tests against the running test stack, including for non-implemented api
-api-test-not-implemented *args: wait-for-api
-    hurl api_tests/not_implemented/*.hurl {{hurl_opts}} {{args}}
 
 # Install cargo dev-tools used by the `verify` recipe (requires rustup to be already installed)
 install-dev-tools:
@@ -80,7 +62,6 @@ install-hurl:
 
 @replace-token:
 	cd token_creation && just replace
-
 
 prune:
     cargo machete

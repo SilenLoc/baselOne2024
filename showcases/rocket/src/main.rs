@@ -3,6 +3,7 @@
 #[macro_use]
 extern crate rocket;
 
+mod assets;
 mod auth;
 mod poke_endpoints;
 mod pokedex;
@@ -21,6 +22,7 @@ fn rocket() -> _ {
     rocket::build()
         .attach(auth::fairing())
         .manage(pokedex)
+        .mount("/_assets", assets::assets())
         .mount(
             "/api",
             routes![healthz, protected, poke_endpoints::add_pokemons],

@@ -1,6 +1,6 @@
-docker build -t hurl-rocket:latest .
-docker-compose down
-docker-compose up -d
-hurl api_tests/implemented/healthz.hurl --retry 60 --variables-file api_tests/hurl.env.test --test
-hurl api_tests/implemented/*.hurl --variables-file api_tests/hurl.env.test --test
-docker-compose down
+lsof -t -i:8090 | xargs -r kill
+cargo run & 2>&1
+hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --test
+hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --test	
+lsof -t -i:8090 | xargs -r kill
+echo "Verify done"

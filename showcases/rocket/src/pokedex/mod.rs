@@ -1,9 +1,8 @@
+use pokemon::Pokemon;
 use std::{
     collections::HashMap,
     sync::{Arc, Mutex},
 };
-
-use pokemon::{PokeType, Pokemon};
 
 pub mod pokemon;
 
@@ -20,18 +19,8 @@ impl Pokedex {
 
     pub fn fake_data(&self) {
         let mut pokemons = self.pokemons.lock().unwrap();
-        let special1 = Pokemon::new(
-            "99999999".to_string(),
-            "Special Pokemon".to_string(),
-            vec![PokeType::Plant()],
-            Box::new(None),
-        );
-        let special2 = Pokemon::new(
-            "999999991".to_string(),
-            "Special Pokemon".to_string(),
-            vec![PokeType::Plant()],
-            Box::new(None),
-        );
+        let special1 = Pokemon::random();
+        let special2 = Pokemon::random();
         pokemons.insert("99999999".to_string(), special1);
         pokemons.insert("999999991".to_string(), special2);
     }

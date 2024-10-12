@@ -478,6 +478,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "jsonwebtoken",
+ "rand",
  "reqwest",
  "rocket",
  "serde",
