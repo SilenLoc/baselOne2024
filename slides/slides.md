@@ -20,6 +20,23 @@ __    __   __    __  .______       __
  /_/    \_\ |_|      |_____|    \__|  \___| |___/  \__| |___/
                             
 ```
+---
+# About me
+
+### Silen Locatelli
+- Married
+- I code, read and will start playing Handball next week
+- Living in Baselland
+
+
+---
+# About me
+
+### Silen Locatelli
+- Optravis LLC
+- Rust Basel
+- Fullstack, lately with Rust + HTMX
+
 
 ---
 # What I search in tools

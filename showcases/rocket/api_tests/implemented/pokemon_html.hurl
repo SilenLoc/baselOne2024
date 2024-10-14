@@ -1,4 +1,4 @@
-# try to get pokemons html
+# try to get pokemons
 GET {{target}}
 HTTP 200
 
