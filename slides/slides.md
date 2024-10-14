@@ -2,6 +2,29 @@
 author: Silen Locatelli
 ---
 
+# The slides
+```
+█████████████████████████████████████
+█████████████████████████████████████
+████ ▄▄▄▄▄ █▄▄▄ ▀▀ █▄  ▀██ ▄▄▄▄▄ ████
+████ █   █ ██▄▀ █▄█▄ ▀ ▄▄█ █   █ ████     Points to https://silenloc.github.io/baselOne2024/
+████ █▄▄▄█ ██▀▄ ▄ ████▄▄██ █▄▄▄█ ████
+████▄▄▄▄▄▄▄█ ▀▄█ ▀ █ █ ▀ █▄▄▄▄▄▄▄████
+████▄ █▄ ▀▄██▄▀█▄ ▀ ▄ ▀▀██▄▀▀█▀▀▄████
+████ █▄█ ▄▄█▀▄██▄   █ ▄█ █▄█ ▀▄█▀████
+████▀▄▄ ▀█▄▄▀  █▀ █▀ ▀▀▄██  ▀▀▀▀ ████
+█████  ▄  ▄██ ▄█▀ ▄ █▄█▄ █▀▀▄█ █ ████
+████▀█▀▄▄▄▄█ █  ▄█▄███   ██▄▀▄▀▀█████
+████  ▄█▀▀▄▄ ██▀▄  ▄ ██▄█▀▀█▄ ▀█▄████
+████▄▄▄█▄█▄▄ ▄▄▄▀ ▀▀▄▄▀▄ ▄▄▄  ▄▄█████
+████ ▄▄▄▄▄ ██▄▀ ▀ █▄▄▀   █▄█ ▄█▀█████
+████ █   █ █ █▀▄▄ ▀  █▀ ▄ ▄▄▄▄█▄ ████
+████ █▄▄▄█ █▀▀  ▄▄█ ▀█▄█▄▄▀ ▄▀ ▄ ████
+████▄▄▄▄▄▄▄█▄█▄███▄▄▄███▄█▄▄▄▄███████
+█████████████████████████████████████
+█████████████████████████████████████
+```
+---
 #  Hurl, API testing in plain text
 
 ```
@@ -36,7 +59,6 @@ __    __   __    __  .______       __
 - Optravis LLC
 - Rust Basel
 - Fullstack, lately with Rust + HTMX
-
 
 ---
 # What I search in tools
@@ -81,14 +103,15 @@ Written in Rust, depends on and lives off libcurl
 
 - Think: Postman - Selenium - Karate
 
-- But: Defined in a simple plain text format.
+- But: 
+  - Defined in a simple plain text format
+  - Run with a CLI
 
 ## File format
 ## CLI (environment)
 ## Output
 
 ---
-
 # In the testing pyramid
 
 ```
@@ -111,7 +134,6 @@ Written in Rust, depends on and lives off libcurl
 /=============================\/
 
 ```
-
 ---
 # The Hurl file
 
@@ -134,7 +156,6 @@ jsonpath "$.cats" count == 49
 jsonpath "$.cats[0].name" == "Felix"
 jsonpath "$.cats[0].lives" == 9
 ```
-
 ---
 # The Hurl file
 
@@ -176,7 +197,6 @@ HTTP 200
 [Asserts]
 body contains "Miau!"
 ```
-
 ---
 # Showcase
 
@@ -198,7 +218,6 @@ port install hurl
 ---
 # Showcase
 
-
 Install:
 ```bash
 
@@ -218,6 +237,8 @@ docker pull ghcr.io/orange-opensource/hurl:latest
 - https://hurl.dev/docs/installation.html
 
 ---
+# Showcase
+
 ```bash
 cd showcases/rocket
 hurl --version
@@ -231,26 +252,31 @@ cat api_tests/implemented/create_pokemons.hurl
 cat api_tests/implemented/pokemon_html.hurl
 ```
 ---
-# manual
+# Showcase
+
+## manual
 
 ```bash
 lsof -t -i:8090 | xargs -r kill
 cargo run & 2>&1
 hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --test
-hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --test	
+hurl api_tests/implemented/*.hurl --variables-file api_tests/variables --test	
 lsof -t -i:8090 | xargs -r kill
 echo "Verify done"
 ```
-# just task runner
+## just task runner
 ```bash
 just --dry-run api_tests 
 just api_tests
 ```
-# sh
+
+---
+## sh
 ```bash
 cat api_tests.sh
 sh api_tests.sh
 ```
+
 ---
 # Adjustments
 
@@ -258,7 +284,7 @@ sh api_tests.sh
 lsof -t -i:8090 | xargs -r kill
 cargo run & 2>&1
 hurl api_tests/implemented/healthz.hurl --retry 4 --delay 1000 --variables-file api_tests/variables --test
-hurl api_tests/implemented/*.hurl {{hurl_opts}} --variables-file api_tests/variables --test	--report-html .
+hurl api_tests/implemented/*.hurl --variables-file api_tests/variables --test	--report-html .
 lsof -t -i:8090 | xargs -r kill
 echo "Verify done"
 ```
@@ -271,9 +297,9 @@ echo "Verify done"
   - precise and close to production tests
   - a good understanding of what state means in your application
 
-
 ---
 # IMO
+
 - on your local environment
   - a tested run command
   - tested environment variables
@@ -282,14 +308,13 @@ echo "Verify done"
 And very important: A good night sleep
 
 ---
-
 # When to stop
 
--- There is no "best setup"
+- There is no "best setup"
 
--- Hurl is as slow as your application
+- Hurl is as slow as your application
 
--- Hurl will reflect the complexity of your API, all of it. 
+- Hurl will reflect the complexity of your API, all of it. 
 
 ---
 # Hurl is the right choice
@@ -316,6 +341,9 @@ And very important: A good night sleep
 > -> Variable injection is the way to get data into Hurl 
 > -> if you think you need something else   
 > -> use http
+---
+
+# Before the last slide
 
 ---
 # The talk and more links at github

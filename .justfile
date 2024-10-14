@@ -43,6 +43,7 @@ zoom size:
 
 create-qr:
     qrencode  -t UTF8 https://github.com/SilenLoc/baselOne2024 > qr
+    qrencode  -t UTF8 https://silenloc.github.io/baselOne2024/ > qr_me
 
 create-img:
     catimg  -r 300 img/logo.png
