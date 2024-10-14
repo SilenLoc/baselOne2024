@@ -43,6 +43,7 @@ __    __   __    __  .______       __
  /_/    \_\ |_|      |_____|    \__|  \___| |___/  \__| |___/
                             
 ```
+HTTP APIs
 ---
 # About me
 
@@ -120,7 +121,7 @@ Written in Rust, depends on and lives off libcurl
               /=\\ 
              /===\ \      Scenario tests
             /=====\' \
-           /=======\'' \      Hurl Api tests
+           /=======\'' \      > Hurl Api tests <
           /=========\ ' '\
          /===========\''   \       Integration tests   
         /=============\ ' '  \
@@ -166,8 +167,6 @@ GET {{target}}/bar
 x-any-header-i-want: some value
 HTTP *
 
-Form
-
 
 [Asserts]
 # We can assert the body with filters over regex
@@ -182,6 +181,21 @@ status < 300
 # The Hurl file
 
 ## example_3.hurl
+```toml
+# There is more
+POST {{target}}/bar
+
+[FormParams]
+name: John Doe
+key1: {{some_variable}}
+
+HTTP 204
+```
+
+---
+# The Hurl file
+
+## example_4.hurl
 ```toml
 # There is more
 GET {{target}}/api/cats
