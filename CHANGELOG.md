@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/SilenLoc/baselOne2024/compare/v0.7.1...v0.8.0) (2024-10-17)
+
+
+### Features
+
+* small fix ([495ba72](https://github.com/SilenLoc/baselOne2024/commit/495ba72e732a1a37da6bc820abeeab4ad1e136af))
+
 ## [0.7.1](https://github.com/SilenLoc/baselOne2024/compare/v0.7.0...v0.7.1) (2024-10-14)
 
 
