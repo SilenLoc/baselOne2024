@@ -1,29 +1,6 @@
 ---
-author: Silen Locatelli
----
+author: Silen Locatelli, Optravis LLC - BaselOne2024
 
-# The slides
-```
-█████████████████████████████████████
-█████████████████████████████████████
-████ ▄▄▄▄▄ █▄▄▄ ▀▀ █▄  ▀██ ▄▄▄▄▄ ████
-████ █   █ ██▄▀ █▄█▄ ▀ ▄▄█ █   █ ████     Points to https://silenloc.github.io/baselOne2024/
-████ █▄▄▄█ ██▀▄ ▄ ████▄▄██ █▄▄▄█ ████
-████▄▄▄▄▄▄▄█ ▀▄█ ▀ █ █ ▀ █▄▄▄▄▄▄▄████
-████▄ █▄ ▀▄██▄▀█▄ ▀ ▄ ▀▀██▄▀▀█▀▀▄████
-████ █▄█ ▄▄█▀▄██▄   █ ▄█ █▄█ ▀▄█▀████
-████▀▄▄ ▀█▄▄▀  █▀ █▀ ▀▀▄██  ▀▀▀▀ ████
-█████  ▄  ▄██ ▄█▀ ▄ █▄█▄ █▀▀▄█ █ ████
-████▀█▀▄▄▄▄█ █  ▄█▄███   ██▄▀▄▀▀█████
-████  ▄█▀▀▄▄ ██▀▄  ▄ ██▄█▀▀█▄ ▀█▄████
-████▄▄▄█▄█▄▄ ▄▄▄▀ ▀▀▄▄▀▄ ▄▄▄  ▄▄█████
-████ ▄▄▄▄▄ ██▄▀ ▀ █▄▄▀   █▄█ ▄█▀█████
-████ █   █ █ █▀▄▄ ▀  █▀ ▄ ▄▄▄▄█▄ ████
-████ █▄▄▄█ █▀▀  ▄▄█ ▀█▄█▄▄▀ ▄▀ ▄ ████
-████▄▄▄▄▄▄▄█▄█▄███▄▄▄███▄█▄▄▄▄███████
-█████████████████████████████████████
-█████████████████████████████████████
-```
 ---
 #  Hurl, API testing in plain text
 
@@ -121,7 +98,7 @@ Written in Rust, depends on and lives off libcurl
               /=\\ 
              /===\ \      Scenario tests
             /=====\' \
-           /=======\'' \      > Hurl Api tests <
+           /=======\'' \      > Hurl API tests <
           /=========\ ' '\
          /===========\''   \       Integration tests   
         /=============\ ' '  \
@@ -140,9 +117,9 @@ Written in Rust, depends on and lives off libcurl
 
 ## example.hurl
 
-```toml
+```json
 # We can write comments and describe what we are doing in short
-# Test if api/foo is available
+# Test if api/cats is available
 GET {{target}}/api/cats
 HTTP 200
 
@@ -161,7 +138,7 @@ jsonpath "$.cats[0].lives" == 9
 # The Hurl file
 
 ## example_2.hurl
-```toml
+```json
 # There is more
 GET {{target}}/bar
 x-any-header-i-want: some value
@@ -174,14 +151,14 @@ regex /^(\d{4}-\d{2}-\d{2})$/ == "2018-12-31"
 # We can assert send + response time
 duration < 1000
 # We can assert statuses with predicates
-status < 300 
+status < 300
 ```
 
 ---
 # The Hurl file
 
 ## example_3.hurl
-```toml
+```json
 # There is more
 POST {{target}}/bar
 
@@ -196,7 +173,7 @@ HTTP 204
 # The Hurl file
 
 ## example_4.hurl
-```toml
+```json
 # There is more
 GET {{target}}/api/cats
 
@@ -326,7 +303,7 @@ And very important: A good night sleep
 
 - There is no "best setup"
 
-- Hurl is as slow as your application
+- Hurl is as slow (fast) as your application
 
 - Hurl will reflect the complexity of your API, all of it. 
 
@@ -355,9 +332,6 @@ And very important: A good night sleep
 > -> Variable injection is the way to get data into Hurl 
 > -> if you think you need something else   
 > -> use http
----
-
-# Before the last slide
 
 ---
 # The talk and more links at github
