@@ -193,8 +193,6 @@ body contains "Miau!"
 
 Install:
 
-```bash
-
 # npm
 npm install --save-dev @orangeopensource/hurl
 
@@ -205,12 +203,12 @@ brew install hurl
 # mac
 brew install hurl
 port install hurl
-```
+
 ---
 # Showcase
 
 Install:
-```bash
+
 
 # windows
 scoop install hurl
@@ -223,7 +221,7 @@ cargo install hurl
 
 # docker 
 docker pull ghcr.io/orange-opensource/hurl:latest
-```
+
 
 - https://hurl.dev/docs/installation.html
 
